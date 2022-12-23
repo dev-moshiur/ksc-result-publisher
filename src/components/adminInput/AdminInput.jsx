@@ -18,6 +18,7 @@ export default function () {
     let group=useRef();
     let studentName=useRef();
     let roll=useRef();
+    let grade = ''
 
     const makeMarksheet =()=>{
         data.inputSubjects.forEach((item)=>subjectMap(item,dispatch))
@@ -25,41 +26,42 @@ export default function () {
     const getresult =()=>sendServer();
     const fixGrade =(gpa)=> {
         if (gpa == 5) {
-            return 'A+'
+            grade = 'A+'
             
         } 
         else if (gpa < 5 && gpa >=4) {
 
-            return 'A'
+            grade = 'A'
             
         } 
         else if (gpa < 4 && gpa >=3.5) {
 
-            return 'A-'
+            grade =  'A-'
             
         } 
         else if (gpa < 3.5 && gpa >=3) {
 
-            return 'B'
+            grade =  'B'
             
         } 
         else if (gpa < 3 && gpa >=2) {
 
-            return 'C'
+            grade =  'C'
             
         } 
         else if (gpa < 2 && gpa >=1) {
 
-            return 'D'
+            grade =  'D'
             
         } 
         else {
-            return 'F'
+            grade =  'F'
             
         }
     }
     const submitAction=()=>{
         makeMarksheet();
+        fixGrade(!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2))
     }
     const sendServer=()=>{
         dispatch({
@@ -75,7 +77,7 @@ export default function () {
             roll:roll.current.value/1,
             greade:fixGrade(),
             GPA:!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2),
-            greade:fixGrade(this.GPA),
+            greade:grade,
             totalMark:data.total,
             subjectCount:data.subjInfo.length,
             subjets:data.subjInfo
@@ -163,7 +165,7 @@ export default function () {
             <label htmlFor="studentName">Student Name</label>
             <input ref={studentName} name='studentName' type="text" />
             <label htmlFor="roll">Roll</label>
-            <input ref={roll} name='roll' type="text" />
+            <input ref={roll} name='roll' type="number" />
             {
                 data.inputSubjects.map((item)=><><label htmlFor={item.name}>{item.name}</label>
                 <input type={(item.name=='Bangla' || item.name=='English')? 'text':'number'} required name={item.name} max={item.max} status={item.type} id={item.id} placeHolder={item.placeHolder}/>
