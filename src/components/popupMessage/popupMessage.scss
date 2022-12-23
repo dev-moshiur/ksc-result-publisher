@@ -1,0 +1,57 @@
+
+
+.popupMessage{
+    position: fixed;
+    top: -10%;
+    right: 20%;
+    width: 60%;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    .container{
+        width:92%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text{
+            color: var(--black);
+            font-weight: 600;
+            font-size: 1.7rem;
+        }
+        
+    }
+    &.active{
+        top: 60px;
+    }
+    .cross{
+        height: 0.7rem;
+       width: 8%;
+       padding-right: 0.5rem;
+      
+        margin-left: 1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        cursor: pointer;
+        span{
+            height: 0.16rem;
+            width: 1.2rem;
+            background: var(--black);
+            transform-origin: 0.26rem;
+            &:first-child{
+                transform: rotate(45deg);
+                
+            }
+            &:last-child{
+                
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+}

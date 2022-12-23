@@ -1,0 +1,87 @@
+
+.school{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &.active{
+        display: flex;
+        animation: fafein 0.6s linear 0s 1 backwards ;
+    
+    }
+    .header{
+        font-size: 1.8rem;
+        color: var(--black);
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        background: #f2f3f4;
+        width: 330px;
+        justify-content: center;
+        
+        padding: 2rem;
+        border-radius: 0.4rem;
+        label{
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+            margin-top: 0.3rem;
+        }
+        input{
+            border: 1px solid #3b444b;
+            outline: none;
+            margin-bottom: 1rem;
+            // 
+            
+            font-size: 1.3rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.3rem;
+
+
+
+
+
+            &:last-child{
+                background: #2e8b57;
+                margin-top: 0.8rem;
+                border: none;
+                outline: none;
+                color: white;
+                font-size: 1.4rem;
+                font-weight: 600;
+                padding: 0.4rem;
+                cursor: pointer;
+            }
+
+        }
+        .reset{
+            background: rgb(241, 82, 38);
+            margin-top: 0.8rem;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 0.4rem;
+            cursor: pointer;
+            
+        }
+        
+    }
+}
+
+
+@keyframes fafein {
+
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}

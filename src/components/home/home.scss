@@ -1,0 +1,60 @@
+
+
+
+.home{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+
+    .forms{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+
+        .option{
+            display: flex;
+            flex-direction: column;
+
+
+            .heading{
+                color: var(--black);
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin: 1rem 0rem;
+            }
+            select{
+                cursor: pointer;
+                border: none;
+                padding: 0.2rem 0.4rem;
+                border-radius: 0.4rem;
+                color: var(--black);
+                font-weight: 600;
+                outline: none;
+                background: #f2f3f4;
+            }
+
+        }
+        .subForms{
+            width: 90%;
+            
+
+
+            
+        }
+
+    }
+    .results{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

@@ -1,0 +1,39 @@
+
+
+.topBar{
+    
+    height: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    background: #ba68ca;
+    color: white;
+    padding: 0px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left{
+        &>*{
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+    }
+    .right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+        &>*{
+            font-size: 1.3rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+    }
+}
