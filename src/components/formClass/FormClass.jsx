@@ -35,7 +35,7 @@ export default function FormClass({}) {
 
         </datalist>
         <label htmlFor="class">Class</label>
-        <input ref={className} list='class'  required type="text" name="class" id="" />
+        <input ref={className} list='class'  required type="number" name="class" id="" />
         <datalist id='class'>
           <option value="Ten"></option>
           <option value="Nine"></option>

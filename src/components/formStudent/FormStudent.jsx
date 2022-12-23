@@ -33,7 +33,7 @@ export default function FormStudent() {
 
         </datalist>
         <label htmlFor="class">Class</label>
-        <input ref={className}   required type="text" name="class" id="" />
+        <input ref={className}   required type="number" name="class" id="" />
         
         <label htmlFor="group">Group</label>
         <input ref={group}  required type="text" name="group" id="" />
