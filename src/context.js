@@ -39,7 +39,7 @@ export default function Context({children}) {
             type:'changeLoading',
             value:true
         })
-        fetch(`https://school-management-api-six.vercel.app//result/?${query}`)
+        fetch(`https://school-management-api-six.vercel.app/result/?${query}`)
             .then(res=>res.json())
             .then(data=>{insertData(data);dispatch({
                 type:'changeLoading',
@@ -47,7 +47,7 @@ export default function Context({children}) {
             })});
     }
     const postRequest =(bodyData)=>{
-        fetch('https://school-management-api-six.vercel.app//result',{
+        fetch('https://school-management-api-six.vercel.app/result',{
               method:'post',
               headers:{'Content-type':'application/json'},
               body:JSON.stringify(bodyData)

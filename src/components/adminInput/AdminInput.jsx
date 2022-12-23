@@ -45,7 +45,7 @@ export default function () {
             subjets:data.subjInfo
     
           }
-        fetch('https://school-management-api-six.vercel.app//result',{
+        fetch('https://school-management-api-six.vercel.app/result',{
           method:'post',
           headers:{'Content-type':'application/json'},
           body:JSON.stringify(serverData)
@@ -106,7 +106,7 @@ export default function () {
 
             </datalist>
             <input type="text" name='examtype' ref={examtype} placeholder="Examination Type Or Name"/>
-            <input type="text" name='className' ref={className} placeholder="Class"/>
+            <input type="number" name='className' ref={className} placeholder="Class"/>
             <input type="text" name='group' ref={group} placeholder="Group"/>
             <input type="reset" value={'Reset'}  placeholder="Reset"/>
             
