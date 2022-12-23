@@ -23,6 +23,41 @@ export default function () {
         data.inputSubjects.forEach((item)=>subjectMap(item,dispatch))
     }
     const getresult =()=>sendServer();
+    const fixGrade =(gpa)=> {
+        if (gpa == 5) {
+            return 'A+'
+            
+        } 
+        else if (gpa < 5 && gpa >=4) {
+
+            return 'A'
+            
+        } 
+        else if (gpa < 4 && gpa >=3.5) {
+
+            return 'A-'
+            
+        } 
+        else if (gpa < 3.5 && gpa >=3) {
+
+            return 'B'
+            
+        } 
+        else if (gpa < 3 && gpa >=2) {
+
+            return 'C'
+            
+        } 
+        else if (gpa < 2 && gpa >=1) {
+
+            return 'D'
+            
+        } 
+        else {
+            return 'F'
+            
+        }
+    }
     const submitAction=()=>{
         makeMarksheet();
     }
@@ -38,8 +73,9 @@ export default function () {
             group:group.current.value,
             className:className.current.value,
             roll:roll.current.value/1,
-            greade:'D',
+            greade:fixGrade(),
             GPA:!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2),
+            greade:fixGrade(this.GPA),
             totalMark:data.total,
             subjectCount:data.subjInfo.length,
             subjets:data.subjInfo
