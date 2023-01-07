@@ -173,7 +173,7 @@ export default function AdminInput() {
                 <input type={(item.name=='Bangla' || item.name=='English')? 'text':'number'} required name={item.name} max={item.max} status={item.type} id={item.id} placeHolder={item.placeHolder}/>
                 </>)
             }
-        <button onClick={addSubjFormActive}>Add Subject</button>
+        <button onClick={addSubjFormActive}>Add more subjects</button>
         <input type="reset" className='reset' value={'Reset'}  placeholder="Reset"/>
             <input type="submit" value="Submit" />
         </form>
