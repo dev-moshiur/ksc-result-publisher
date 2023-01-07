@@ -14,6 +14,7 @@ export const useData =()=>{
 }
 
 export default function Context({children}) {
+
     
 
     const insertData=(data)=>{
@@ -68,7 +69,11 @@ export default function Context({children}) {
         subjectCount:0,
         cgpa:0,
         subjInfo:[],
-        inputSubjects:[]
+        isAdmin:false,
+        adminChecked:false,
+        inputSubjects:[{name:'bangla',id:'bangla',type:'main',max:100,placeHolder:'1st,2nd'},
+                        {name:'english',id:'english',type:'main',max:100,placeHolder:'1st,2nd'}]
+                        
     }
     
       const reducer =(state,action)=>{
@@ -79,6 +84,9 @@ export default function Context({children}) {
               case 'changeForm':
                   return {
                   ...state,formType:action.value}
+               case 'setAdmin':
+                   return{
+                ...state,isAdmin:action.value,adminChecked:action.value}
               case 'changeLoading':
                   return {
                   ...state,loading:action.value}
@@ -119,6 +127,28 @@ export default function Context({children}) {
         postRequest
 
     }
+    const checkAdmin =()=>{
+        if (!data.adminChecked) {
+          fetch(`https://school-management-api-six.vercel.app/checkAdmin`,{
+          credentials:'include'}
+        ).then(res=>res.json())
+        .then(data=>{
+          
+          if (data.admin) {
+            dispatch({
+              type:'setAdmin',
+              value:true
+            })
+          } else {
+            
+            
+          }
+        })
+        }
+        
+
+      }
+      checkAdmin()
   return (
     <dataContext.Provider value={allData}>
 

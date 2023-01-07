@@ -2,14 +2,14 @@
 
 import React from 'react'
 
-import { useRef,useState } from 'react'
+import { useRef} from 'react'
 import './adminInput.scss'
 
 import { useData } from '../../context';
 import subjectMap from '../../makingMarksheetFunction/subjectMap';
 import Loading from '../loading/Loading';
 
-export default function () {
+export default function AdminInput() {
    const {data,dispatch} = useData();
 
     let schoolName=useRef();
@@ -59,6 +59,16 @@ export default function () {
             
         }
     }
+    const addSubjFormActive = ()=>{
+        dispatch({
+            type:'changePopUp',
+            value:{
+                name:'addInput',
+                message:''
+            }
+        })
+
+    }
     const submitAction=()=>{
         makeMarksheet();
         fixGrade(!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2))
@@ -75,7 +85,7 @@ export default function () {
             group:group.current.value,
             className:className.current.value,
             roll:roll.current.value/1,
-            greade:fixGrade(),
+            
             GPA:!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2),
             greade:grade,
             totalMark:data.total,
@@ -152,15 +162,7 @@ export default function () {
         <div className="heading">
             Subject Information
         </div>
-        <button onClick={()=>dispatch({
-            type:'changePopUp',
-            value:{
-                name:'addInput',
-                message:''
-            }
-        })}>
-            Add Subject
-            </button>
+        
         <form onSubmit={(e)=>{e.preventDefault();submitAction();}}>
             <label htmlFor="studentName">Student Name</label>
             <input ref={studentName} name='studentName' type="text" />
@@ -171,6 +173,7 @@ export default function () {
                 <input type={(item.name=='Bangla' || item.name=='English')? 'text':'number'} required name={item.name} max={item.max} status={item.type} id={item.id} placeHolder={item.placeHolder}/>
                 </>)
             }
+        <button onClick={addSubjFormActive}>Add Subject</button>
         <input type="reset" className='reset' value={'Reset'}  placeholder="Reset"/>
             <input type="submit" value="Submit" />
         </form>
