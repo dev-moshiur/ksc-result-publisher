@@ -22,7 +22,7 @@ function App() {
 
       <div className="others">
       {!data.isAdmin && <Login/>}
-      {data.isAdmin && <AdminInput/>}
+       <AdminInput/>
       
       </div>
       <div className="popups">

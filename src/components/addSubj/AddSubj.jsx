@@ -9,6 +9,7 @@ export default function AddSubj() {
     const type=useRef();
     const id=useRef();
     const max=useRef();
+    const form=useRef()
     const placeHolder=useRef();
     
     const {data,dispatch} = useData();
@@ -23,6 +24,8 @@ export default function AddSubj() {
                 type:'addSubject',
                 value:addData
             })
+            form.current.reset();
+
     }
     const remove=(name)=>{
         dispatch({
@@ -46,7 +49,7 @@ export default function AddSubj() {
 
         </div>
         <div className="add">
-            <form onSubmit={(e)=>{e.preventDefault();adding()}}>
+            <form ref={form} onSubmit={(e)=>{e.preventDefault();adding()}}>
                 <label htmlFor="name">Subject Name</label>
                 <input required type="text" ref={name} list='name' name='name'/>
                 <datalist id='name'>

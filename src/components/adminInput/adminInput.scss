@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 3rem;
     .header{
         color: var(--black);
         font-size: 1.8rem;
@@ -31,6 +32,19 @@
         
         padding: 2rem;
         border-radius: 0.4rem;
+        button{
+            background: rgb(241, 82, 38);
+            width: fit-content;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.4rem;
+            display: block;
+            margin: 0.5rem auto;
+
+        }
         label{
             font-size: 1.4rem;
             margin-bottom: 0.3rem;
