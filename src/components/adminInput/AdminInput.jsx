@@ -1,185 +1,187 @@
+import React from "react";
 
+import { useRef, useState } from "react";
+import "./adminInput.scss";
 
-import React from 'react'
-
-import { useRef} from 'react'
-import './adminInput.scss'
-
-import { useData } from '../../context';
-import subjectMap from '../../makingMarksheetFunction/subjectMap';
-import Loading from '../loading/Loading';
+import { useData } from "../../context";
+import subjectMap from "../../makingMarksheetFunction/subjectMap";
+import Loading from "../loading/Loading";
+import Marksheet from "../marksheet/Marksheet";
 
 export default function AdminInput() {
-   const {data,dispatch} = useData();
+  const [showMarksheet, setShowMarksheet] = useState(false);
 
-    let schoolName=useRef();
-    let examtype=useRef();
-    let className=useRef();
-    let group=useRef();
-    let studentName=useRef();
-    let roll=useRef();
-    let grade = ''
+  const { data, dispatch } = useData();
 
-    const makeMarksheet =()=>{
-        data.inputSubjects.forEach((item)=>subjectMap(item,dispatch))
+  
+  let examtype = useRef();
+  let className = useRef();
+  let group = useRef();
+  let studentName = useRef();
+  let roll = useRef();
+  
+
+  const makeMarksheet = () => {
+    data.inputSubjects.forEach((item) => subjectMap(item, dispatch));
+  };
+  
+  const fixGrade = (gpa) => {
+    if (gpa == 5) {
+      return "A+";
+    } else if (gpa < 5 && gpa >= 4) {
+      return "A";
+    } else if (gpa < 4 && gpa >= 3.5) {
+      return "A-";
+    } else if (gpa < 3.5 && gpa >= 3) {
+      return "B";
+    } else if (gpa < 3 && gpa >= 2) {
+      return "C";
+    } else if (gpa < 2 && gpa >= 1) {
+      return "D";
+    } else {
+      return "F";
     }
-    const getresult =()=>sendServer();
-    const fixGrade =(gpa)=> {
-        if (gpa == 5) {
-            grade = 'A+'
-            
-        } 
-        else if (gpa < 5 && gpa >=4) {
+  };
+  const addSubjFormActive = () => {
+    dispatch({
+      type: "changePopUp",
+      value: {
+        name: "addInput",
+        message: "",
+      },
+    });
+  };
+  const submitAction = () => {
+    makeMarksheet();
+    console.log(data.results[0]);
 
-            grade = 'A'
-            
-        } 
-        else if (gpa < 4 && gpa >=3.5) {
+    fixGrade(
+      !data.fail &&
+        (
+          (data.gpa / data.subjectCount > 5
+            ? 5
+            : data.gpa / data.subjectCount) / 1
+        ).toFixed(2)
+    );
+    setShowMarksheet(true);
+  };
+  function sendServer() {
+    return {
+      studentName: studentName.current.value,
+      schoolName: `Khalshi High School`,
+      examtype: examtype.current.value,
+      group: group.current.value,
+      className: className.current.value,
+      roll: roll.current.value / 1,
 
-            grade =  'A-'
-            
-        } 
-        else if (gpa < 3.5 && gpa >=3) {
+      GPA:
+        !data.fail &&
+        (
+          (data.gpa / data.subjectCount > 5
+            ? 5
+            : data.gpa / data.subjectCount) / 1
+        ).toFixed(2),
+      greade: fixGrade(!data.fail &&
+        (
+          (data.gpa / data.subjectCount > 5
+            ? 5
+            : data.gpa / data.subjectCount) / 1
+        ).toFixed(2)),
+      totalMark: data.total,
+      subjectCount: data.subjInfo.length,
+      subjets: data.subjInfo,
+    };
+  };
 
-            grade =  'B'
-            
-        } 
-        else if (gpa < 3 && gpa >=2) {
-
-            grade =  'C'
-            
-        } 
-        else if (gpa < 2 && gpa >=1) {
-
-            grade =  'D'
-            
-        } 
-        else {
-            grade =  'F'
-            
-        }
-    }
-    const addSubjFormActive = ()=>{
-        dispatch({
-            type:'changePopUp',
-            value:{
-                name:'addInput',
-                message:''
-            }
-        })
-
-    }
-    const submitAction=()=>{
-        makeMarksheet();
-        fixGrade(!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2))
-    }
-    const sendServer=()=>{
-        dispatch({
-            type:'changeLoading',
-            value:true
-        })
-        let serverData={
-            studentName:studentName.current.value,
-            schoolName:schoolName.current.value,
-            examtype:examtype.current.value,
-            group:group.current.value,
-            className:className.current.value,
-            roll:roll.current.value/1,
-            
-            GPA:!data.fail &&(((data.gpa/data.subjectCount>5)? 5:data.gpa/data.subjectCount)/1).toFixed(2),
-            greade:grade,
-            totalMark:data.total,
-            subjectCount:data.subjInfo.length,
-            subjets:data.subjInfo
-    
-          }
-        fetch('https://school-management-api-six.vercel.app/result',{
-          method:'post',
-          headers:{'Content-type':'application/json'},
-          body:JSON.stringify(serverData)
-        }).then(res=>{
-            if (res.status == 200) {
-
-                dispatch({
-                    type:'changePopUp',
-                    value:{
-                        name:'message',
-                        message:'Result Submission Successfull'
-                    }
-                })
-                
-            } else {
-                dispatch({
-                    type:'changePopUp',
-                    value:{
-                        name:'message',
-                        message:'Somethin went wrong'
-                    }
-                })
-            }
-        })
-        
-
-        dispatch({
-            type:'imptyMarksheet',
-        })
-        dispatch({
-            type:'changeLoading',
-            value:false
-        })
-    }
-    
-    
-    
-    
-    
   return (
-    <div className='adminInput'>
-        <div className="header">
+    <div className="adminInput">
+      <div className="header">Input Data of Every student</div>
+      <div className="heading">Basic Information</div>
+      <form className="basicInfo">
+        <input
+          placeholder="Examination Type Or Name"
+          ref={examtype}
+          required
+          list="examType"
+          type="text"
+          name="examType"
+        />
+        <datalist id="examType">
+          <option value="Half-Yearly Examination 2023"></option>
+          <option value="Model Test Examination 2023"></option>
+          <option value="Weekly Test-35 2023"></option>
+          <option value="Final Examination 2023"></option>
+        </datalist>
 
-            Input Data of Every student
+        <input
+          type="number"
+          required
+          name="className"
+          ref={className}
+          placeholder="Class"
+        />
+        <input
+          type="text"
+          required
+          name="group"
+          ref={group}
+          list="group"
+          placeholder="Group"
+        />
+        <datalist id="group">
+          <option value="science"></option>
+          <option value="humanities"></option>
+          <option value="business"></option>
+          <option value="no group"></option>
+        </datalist>
+        <input type="reset" value={"Reset"} placeholder="Reset" />
+      </form>
+      <div className="heading">Subject Information</div>
 
-        </div>
-        <div className="heading">
-
-            Basic Information
-
-        </div>
-        <form  className="basicInfo">
-            <input type="text" list='school' name='schoolName' max={100} ref={schoolName} placeholder="Your School Name"/>
-            <datalist id="school">
-            <option value="Khalshi High School"></option>
-            <option value="Nijpara High School"></option>
-            <option value="Patharghata High School"></option>
-
-            </datalist>
-            <input type="text" name='examtype' ref={examtype} placeholder="Examination Type Or Name"/>
-            <input type="number" name='className' ref={className} placeholder="Class"/>
-            <input type="text" name='group' ref={group} placeholder="Group"/>
-            <input type="reset" value={'Reset'}  placeholder="Reset"/>
-            
-        </form>
-        <div className="heading">
-            Subject Information
-        </div>
-        
-        <form onSubmit={(e)=>{e.preventDefault();submitAction();}}>
-            <label htmlFor="studentName">Student Name</label>
-            <input ref={studentName} name='studentName' type="text" />
-            <label htmlFor="roll">Roll</label>
-            <input ref={roll} name='roll' type="number" />
-            {
-                data.inputSubjects.map((item)=><><label htmlFor={item.name}>{item.name}</label>
-                <input type={(item.name=='Bangla' || item.name=='English')? 'text':'number'} required name={item.name} max={item.max} status={item.type} id={item.id} placeHolder={item.placeHolder}/>
-                </>)
-            }
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitAction();
+        }}
+      >
+        <label htmlFor="studentName">Student Name</label>
+        <input required ref={studentName} name="studentName" type="text" />
+        <label htmlFor="roll">Roll</label>
+        <input required ref={roll} name="roll" type="number" />
+        {data.inputSubjects.map((item) => (
+          <>
+            <label htmlFor={item.name}>{item.name}</label>
+            <input
+              type={
+                (item.name === "Bangla" || item.name === "English")
+                  ? "text"
+                  : "number"
+              }
+              required
+              name={item.name}
+              max={item.max}
+              status={item.type}
+              id={item.id}
+              placeHolder={item.placeHolder}
+            />
+          </>
+        ))}
         <button onClick={addSubjFormActive}>Add more subjects</button>
-        <input type="reset" className='reset' value={'Reset'}  placeholder="Reset"/>
-            <input type="submit" value="Submit" />
-        </form>
-        <button className={!(data.subjInfo.length>0) && 'btnDisabled'} disabled={(data.subjInfo.length>0)? false:true} onClick={getresult}>Send to Server</button>
-        {data.loading && <Loading/>}
-        
+        <input
+          type="reset"
+          className="reset"
+          value={"Reset"}
+          placeholder="Reset"
+        />
+        <input type="submit" value="Submit" />
+      </form>
+
+      {showMarksheet && (
+        <Marksheet
+          sendServer={sendServer}
+          setShowMarksheet={setShowMarksheet}
+        />
+      )}
     </div>
-  )
+  );
 }

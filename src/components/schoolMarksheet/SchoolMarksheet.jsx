@@ -1,10 +1,6 @@
-
-
-import './schoolMarksheet.scss'
-import React from 'react'
+import "./schoolMarksheet.scss";
+import React from "react";
 
 export default function SchoolMarksheet() {
-  return (
-    <div>SchoolMarksheet</div>
-  )
+  return <div>SchoolMarksheet</div>;
 }
