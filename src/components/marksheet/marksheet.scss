@@ -1,7 +1,8 @@
 .marksheet {
   width: 100%;
-  height: fit-content;
+ height: 100%;
   position: fixed;
+  padding-bottom: 2rem;
   top: 60px;
   left: 0;
 
@@ -23,15 +24,15 @@
   .buttons {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 1.5rem auto;
     padding: 0.5rem 0.8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
     button {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      margin-left: 2rem;
+      
+     
       width: fit-content;
       padding: 0.5rem 0.8rem;
       border: var(--border);
