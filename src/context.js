@@ -70,15 +70,15 @@ export default function Context({ children }) {
     adminChecked: false,
     inputSubjects: [
       {
-        name: "bangla",
-        id: "bangla",
+        name: "Bangla",
+        id: "Bangla",
         type: "main",
         max: 100,
         placeHolder: "1st,2nd",
       },
       {
-        name: "english",
-        id: "english",
+        name: "English",
+        id: "English",
         type: "main",
         max: 100,
         placeHolder: "1st,2nd",

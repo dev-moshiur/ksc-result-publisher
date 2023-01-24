@@ -5,7 +5,7 @@ import forOptional from "./forOptional";
 const subjectMap = (item, dispatch) => {
   let mark = document.getElementById(item.id).value;
   if (item.type == "main") {
-    if (item.id == "bangla" || item.id == "english") {
+    if (item.id == "Bangla" || item.id == "English") {
       forBanEng(item, mark, dispatch);
     } else {
       forNormal(item, mark, dispatch);

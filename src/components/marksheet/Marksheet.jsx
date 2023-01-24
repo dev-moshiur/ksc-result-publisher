@@ -10,6 +10,9 @@ export default function ({ sendServer, setShowMarksheet }) {
   const { data, dispatch } = useData();
   const serverData = sendServer();
   
+  
+  
+  
   const handlePushing = () => {
     dispatch({
       type: "changeLoading",
@@ -57,11 +60,18 @@ export default function ({ sendServer, setShowMarksheet }) {
       },
     });
   };
+  const handleCancle =()=>{
+    setShowMarksheet(false)
+    dispatch({
+      type: "imptyMarksheet",
+    });
+
+  }
 
   return (
     <div className="marksheet">
       <div className="buttons">
-        <button onClick={() => setShowMarksheet(false)}>Cancel</button>
+        <button onClick={handleCancle}>Cancel</button>
         <button onClick={genaratePDF}>Download as PDF</button>
         <button onClick={handlePushing}>Send Server</button>
       </div>
