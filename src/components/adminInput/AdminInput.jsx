@@ -141,7 +141,7 @@ export default function AdminInput() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          submitAction();
+          
         }}
       >
         <label htmlFor="studentName">Student Name</label>
@@ -178,7 +178,7 @@ export default function AdminInput() {
           value={"Clear Form"}
           placeholder="Reset"
         />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onClick={submitAction}/>
       </form>
 
       {showMarksheet && (
