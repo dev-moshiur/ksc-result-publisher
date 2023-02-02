@@ -8,11 +8,8 @@ import Loading from "../loading/Loading";
 
 export default function ({ sendServer, setShowMarksheet }) {
   const { data, dispatch } = useData();
-  const serverData = sendServer();
-  
-  
-  
-  
+  const serverData = sendServer ? sendServer(): data.results[0];
+
   const handlePushing = () => {
     dispatch({
       type: "changeLoading",
@@ -24,7 +21,7 @@ export default function ({ sendServer, setShowMarksheet }) {
       body: JSON.stringify(serverData),
     }).then((res) => {
       if (res.status == 200) {
-        setShowMarksheet(false)
+        setShowMarksheet(false);
         dispatch({
           type: "changeLoading",
           value: false,
@@ -60,20 +57,21 @@ export default function ({ sendServer, setShowMarksheet }) {
       },
     });
   };
-  const handleCancle =()=>{
-    setShowMarksheet(false)
+  const handleCancle = () => {
+    setShowMarksheet(false);
     dispatch({
       type: "imptyMarksheet",
     });
-
-  }
+  };
 
   return (
     <div className="marksheet">
       <div className="buttons">
-        <button onClick={handleCancle}>Cancel</button>
+        
+        {sendServer && <button onClick={handleCancle}>Cancel</button>}
         <button onClick={genaratePDF}>Download as PDF</button>
-        <button onClick={handlePushing}>Send Server</button>
+        {sendServer && <button onClick={handlePushing}>Send Server</button>}
+        
       </div>
 
       {data.loading && <Loading />}

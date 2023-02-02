@@ -1,8 +1,6 @@
 import "./home.scss";
 import React from "react";
-import AdminInput from "../adminInput/AdminInput";
 
-import FormSchool from "../formSchool/FormSchool";
 import FormClass from "../formClass/FormClass";
 import FormStudent from "../formStudent/FormStudent";
 import ResultsAll from "../resultsAll/ResultsAll";
@@ -31,12 +29,10 @@ export default function Home() {
               Select Option
             </option>
             <option value="student">Student</option>
-            <option value="school">School</option>
             <option value="class">Class</option>
           </select>
         </div>
         <div className="subForms">
-          <FormSchool />
           <FormClass />
           <FormStudent />
         </div>

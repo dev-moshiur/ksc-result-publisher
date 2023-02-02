@@ -7,6 +7,7 @@ export default function TopBar() {
     <div className="topBar">
       <div className="left">
         <Link to="/">Publish Result</Link>
+        <Link to="/search">Search</Link>
       </div>
 
       <div className="main">

@@ -13,6 +13,9 @@
   align-items: center;
   box-shadow: 0 0 1rem rgba($color: #ba68ca, $alpha: 0.1);
   .left {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
     & > * {
       font-size: 1.6rem;
       font-weight: 500;

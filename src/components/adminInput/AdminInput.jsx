@@ -13,18 +13,16 @@ export default function AdminInput() {
 
   const { data, dispatch } = useData();
 
-  
   let examtype = useRef();
   let className = useRef();
   let group = useRef();
   let studentName = useRef();
   let roll = useRef();
-  
 
   const makeMarksheet = () => {
     data.inputSubjects.forEach((item) => subjectMap(item, dispatch));
   };
-  
+
   const fixGrade = (gpa) => {
     if (gpa == 5) {
       return "A+";
@@ -81,17 +79,19 @@ export default function AdminInput() {
             ? 5
             : data.gpa / data.subjectCount) / 1
         ).toFixed(2),
-      greade: fixGrade(!data.fail &&
-        (
-          (data.gpa / data.subjectCount > 5
-            ? 5
-            : data.gpa / data.subjectCount) / 1
-        ).toFixed(2)),
+      greade: fixGrade(
+        !data.fail &&
+          (
+            (data.gpa / data.subjectCount > 5
+              ? 5
+              : data.gpa / data.subjectCount) / 1
+          ).toFixed(2)
+      ),
       totalMark: data.total,
       subjectCount: data.subjInfo.length,
       subjets: data.subjInfo,
     };
-  };
+  }
 
   return (
     <div className="adminInput">
@@ -153,7 +153,7 @@ export default function AdminInput() {
             <label htmlFor={item.name}>{item.name}</label>
             <input
               type={
-                (item.name === "Bangla" || item.name === "English")
+                item.name === "Bangla" || item.name === "English"
                   ? "text"
                   : "number"
               }

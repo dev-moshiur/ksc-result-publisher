@@ -27,10 +27,6 @@ export default function RowResultContainer() {
               <span>class :</span>
               <span>{data.results[0].className}</span>
             </div>
-            <div>
-              <span>Group :</span>
-              <span>{data.results[0].group}</span>
-            </div>
           </div>
         </div>
         <div className="table">
