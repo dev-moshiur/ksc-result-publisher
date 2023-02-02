@@ -76,7 +76,7 @@ export default function ({ sendServer, setShowMarksheet }) {
 
       {data.loading && <Loading />}
       <div className="scroll">
-        <div className="container" id="pdfDownload">
+        {!data.loading && <div className="container" id="pdfDownload">
           <div className="top">
             <div className="schoolName">Khalshi High School</div>
             <div className="examName">{serverData.examtype}</div>
@@ -135,7 +135,8 @@ export default function ({ sendServer, setShowMarksheet }) {
               </tbody>
             </table>
           </div>
-        </div>
+        </div> }
+        
       </div>
     </div>
   );
