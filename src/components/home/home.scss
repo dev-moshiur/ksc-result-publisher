@@ -22,7 +22,8 @@
         color: var(--black);
         font-size: 1.8rem;
         font-weight: 600;
-        margin: 1rem 0rem;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
       }
       select {
         cursor: pointer;
@@ -33,6 +34,7 @@
         font-weight: 600;
         outline: none;
         background: #f2f3f4;
+        margin-bottom: 1rem;
       }
     }
     .subForms {

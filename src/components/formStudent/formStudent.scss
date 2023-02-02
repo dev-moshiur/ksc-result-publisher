@@ -20,8 +20,10 @@
     display: flex;
     flex-direction: column;
     background: #f2f3f4;
-    width: 330px;
+    width: 90%;
+    max-width: 500px;
     justify-content: center;
+    margin: 0 auto;
 
     padding: 2rem;
     border-radius: 0.4rem;

@@ -15,7 +15,7 @@ export default function FormStudent() {
 
   return (
     <div className={data.formType == "student" ? "student active" : "student"}>
-      <div className="header">Fill Up This Form</div>
+      
       <form
         action=""
         onSubmit={(e) => {
@@ -32,6 +32,7 @@ export default function FormStudent() {
             list="examType"
             type="text"
             name="examType"
+            placeholder="select from datalist"
           />
           <datalist id="examType">
             <option value="Half-Yearly Examination 2023"></option>
@@ -41,10 +42,15 @@ export default function FormStudent() {
           </datalist>
        
         <label htmlFor="class">Class</label>
-        <input ref={className} required type="number" name="class" id="" />
+        <input ref={className}
+            required 
+            type="number"
+            max={10}
+            min={6}
+            name="class" id="" />
 
         <label htmlFor="group">Group</label>
-        <input ref={group} required type="text" list="group" name="group" id="" />
+        <input ref={group} required type="text" list="group" name="group" placeholder="select from datalist" id="" />
         <label htmlFor="rool">Roll</label>
         <datalist id="group">
           <option value="science"></option>

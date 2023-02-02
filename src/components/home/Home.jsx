@@ -3,12 +3,12 @@ import React from "react";
 
 import FormClass from "../formClass/FormClass";
 import FormStudent from "../formStudent/FormStudent";
-import ResultsAll from "../resultsAll/ResultsAll";
+
 import Marksheet from "../marksheet/Marksheet";
 import RowResult from "../rowResult/RowResult";
 import { useData } from "../../context";
 import Loading from "../loading/Loading";
-import RowResultContainer from "../rowResultContainer/RowResultContainer";
+
 export default function Home() {
   const { dispatch, data } = useData();
 
@@ -39,7 +39,7 @@ export default function Home() {
       </div>
       <div className="results">
         {data.loading && <Loading />}
-        {data.type == "many" && <RowResultContainer />}
+        
         {data.type == "single" && <Marksheet />};
       </div>
     </div>

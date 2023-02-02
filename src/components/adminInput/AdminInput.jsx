@@ -96,7 +96,7 @@ export default function AdminInput() {
   return (
     <div className="adminInput">
       <div className="header">Input Data of Every student</div>
-      <div className="heading">Basic Information</div>
+      <div className="heading">1.Basic Information</div>
       <form className="basicInfo">
         <input
           placeholder="Examination Type Or Name"
@@ -134,9 +134,9 @@ export default function AdminInput() {
           <option value="business"></option>
           <option value="no group"></option>
         </datalist>
-        <input type="reset" value={"Reset"} placeholder="Reset" />
+        <input type="reset" value={"Clear Form"} placeholder="Reset" />
       </form>
-      <div className="heading">Subject Information</div>
+      <div className="heading">2.Subject wise marks</div>
 
       <form
         onSubmit={(e) => {
@@ -162,7 +162,12 @@ export default function AdminInput() {
               max={item.max}
               status={item.type}
               id={item.id}
-              placeHolder={item.placeHolder}
+              placeHolder={
+                item.name === "Bangla" || item.name === "English"
+                  ? "first paper,second paper"
+                  : item.placeHolder
+                
+                }
             />
           </>
         ))}
@@ -170,7 +175,7 @@ export default function AdminInput() {
         <input
           type="reset"
           className="reset"
-          value={"Reset"}
+          value={"Clear Form"}
           placeholder="Reset"
         />
         <input type="submit" value="Submit" />

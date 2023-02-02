@@ -2,21 +2,25 @@ import "./formClass.scss";
 import React, { useRef, useState } from "react";
 import { useData } from "../../context";
 import { Navigate } from "react-router-dom";
+import Loading from '../loading/Loading'
 export default function FormClass({}) {
   const { data, dispatch } = useData();
 
   const className = useRef();
   const examtype = useRef();
   const [fetchSuccess, setfetchSuccess] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setfetchSuccess(false);
+    setLoading(true)
     fetch(
       `https://school-management-api-six.vercel.app/result/?className=${className.current.value}&examtype=${examtype.current.value}`
     )
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false)
         setfetchSuccess(true);
         dispatch({
           type: "setResult",
@@ -36,7 +40,9 @@ export default function FormClass({}) {
     <>
       {fetchSuccess && <Navigate to="/searchresult" />}
       <div className={data.formType == "class" ? "class active" : "class"}>
-        <div className="header">Fill Up This Form</div>
+        
+        {loading && <Loading/>}
+        
         <form action="" onSubmit={handleSubmit}>
           <label htmlFor="examType">Exam Name</label>
           <input
@@ -45,6 +51,7 @@ export default function FormClass({}) {
             list="examType"
             type="text"
             name="examType"
+            placeholder="select from datalist"
           />
           <datalist id="examType">
             <option value="Half-Yearly Examination 2023"></option>
@@ -59,6 +66,8 @@ export default function FormClass({}) {
             type="number"
             id="class"
             name="class"
+            max={10}
+            min={6}
           />
 
           <input type="reset" className={"reset"} value="Reset" />

@@ -47,7 +47,7 @@ export default function Searched() {
           <label htmlFor="examtype">
             Exam Name
           </label>
-          <select name="examtype" id="" 
+          <select name="examtype" id="" placeholder="select from datalist"
           onChange={(e)=>setExamtype(e.target.value)}>
             <option value="Half-Yearly Examination 2023">Half-Yearly Examination 2023</option>
             <option value="Model Test Examination 2023">Model Test Examination 2023</option>
@@ -57,12 +57,17 @@ export default function Searched() {
           <label htmlFor="class">
             Class
           </label>
-          <input defaultValue={className} type="number" name="class" id="" onChange={(e)=>setClassName(e.target.value)} />
+          <input 
+            defaultValue={className} 
+            type="number"
+            max={10}
+            min={6}name="class"
+            onChange={(e)=>setClassName(e.target.value)} />
           
           <label htmlFor="group">
             Group
           </label>
-          <select name="group" id="" onChange={(e)=>setGroup(e.target.value)}>
+          <select name="group" id="" placeholder="select from datalist" onChange={(e)=>setGroup(e.target.value)}>
             <option value="science">science</option>
             <option value="humanities">humanities</option>
             <option value="business">business</option>
