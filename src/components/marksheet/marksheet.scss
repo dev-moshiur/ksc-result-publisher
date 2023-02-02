@@ -7,7 +7,7 @@
   left: 0;
 
   display: flex;
-  justify-content: center;
+  
   flex-direction: column;
   // position: relative;
   flex-direction: column;
@@ -23,7 +23,7 @@
     align-items: center;
   }
   .buttons {
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     margin: 1.5rem auto;
     padding: 0.5rem 0.8rem;
@@ -38,6 +38,7 @@
       color: white;
       border-radius: 0.5rem;
       background: rgb(241, 82, 38);
+      margin: 0;
     }
   }
 }
@@ -50,7 +51,6 @@
   flex-direction: column;
   margin-top: 35rem;
   border-radius: 1rem;
-
   align-items: center;
   box-shadow: 0 0 5px rgb(218, 214, 214);
 

@@ -40,7 +40,8 @@ export default function AdminInput() {
       return "F";
     }
   };
-  const addSubjFormActive = () => {
+  const addSubjFormActive = (e) => {
+    e.preventDefault();
     dispatch({
       type: "changePopUp",
       value: {
@@ -49,7 +50,8 @@ export default function AdminInput() {
       },
     });
   };
-  const submitAction = () => {
+  const submitAction = (e) => {
+    e.preventDefault();
     makeMarksheet();
     console.log(data.results[0]);
 
@@ -139,11 +141,8 @@ export default function AdminInput() {
       <div className="heading">2.Subject wise marks</div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          
-        }}
-      >
+        onSubmit={submitAction}>
+
         <label htmlFor="studentName">Student Name</label>
         <input required ref={studentName} name="studentName" type="text" />
         <label htmlFor="roll">Roll</label>
@@ -178,7 +177,7 @@ export default function AdminInput() {
           value={"Clear Form"}
           placeholder="Reset"
         />
-        <input type="submit" value="Submit" onClick={submitAction}/>
+        <input type="submit" value="Submit" />
       </form>
 
       {showMarksheet && (
