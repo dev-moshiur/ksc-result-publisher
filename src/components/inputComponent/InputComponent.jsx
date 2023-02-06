@@ -22,7 +22,7 @@ export default function InputComponent({subject}) {
                 <span>{subject.type}</span>
             </div>
             <div className="feature">
-                <span>Maximum Mark : </span>
+                <span>Full Mark : </span>
                 <span>{subject.max}</span>
             </div>
             <Clear className='clear' onClick = {remove}/>
