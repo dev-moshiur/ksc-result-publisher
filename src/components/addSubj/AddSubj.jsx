@@ -98,7 +98,7 @@ export default function AddSubj() {
             })
           }
         >
-          <Clear />
+          Exit
         </div>
       </div>
     </div>

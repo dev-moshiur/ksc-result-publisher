@@ -66,7 +66,7 @@ export default function Context({ children }) {
     subjectCount: 0,
     cgpa: 0,
     subjInfo: [],
-    isAdmin: false,
+    isAdmin:true,
     adminChecked: false,
     inputSubjects: [
       {

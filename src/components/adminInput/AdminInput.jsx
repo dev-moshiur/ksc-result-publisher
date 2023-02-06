@@ -7,6 +7,7 @@ import { useData } from "../../context";
 import subjectMap from "../../makingMarksheetFunction/subjectMap";
 import Loading from "../loading/Loading";
 import Marksheet from "../marksheet/Marksheet";
+import InputComponent from "../inputComponent/InputComponent";
 
 export default function AdminInput() {
   const [showMarksheet, setShowMarksheet] = useState(false);
@@ -148,27 +149,8 @@ export default function AdminInput() {
         <label htmlFor="roll">Roll</label>
         <input required ref={roll} name="roll" type="number" />
         {data.inputSubjects.map((item) => (
-          <>
-            <label htmlFor={item.name}>{item.name}</label>
-            <input
-              type={
-                item.name === "Bangla" || item.name === "English"
-                  ? "text"
-                  : "number"
-              }
-              required
-              name={item.name}
-              max={item.max}
-              status={item.type}
-              id={item.id}
-              placeHolder={
-                item.name === "Bangla" || item.name === "English"
-                  ? "first paper,second paper"
-                  : item.placeHolder
-                
-                }
-            />
-          </>
+          <InputComponent subject ={item}/>
+          
         ))}
         <button onClick={addSubjFormActive}>Add more subjects</button>
         <input
