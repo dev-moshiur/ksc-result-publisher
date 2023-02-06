@@ -10,7 +10,7 @@ import Search from "./components/home/Home";
 import Admin from "./components/admin/Admin";
 import { Route, Routes } from "react-router-dom";
 import SearchedResult from "./components/searchedresult/Searched";
-
+import Footer from "./components/footer/Footer";
 function App() {
   const { data } = useData();
 
@@ -26,6 +26,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <Footer/>
       <div className="popups">
         <AddSubj />
         <PopupMessage />
