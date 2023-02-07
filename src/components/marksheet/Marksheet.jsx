@@ -101,7 +101,7 @@ export default function ({ sendServer, setShowMarksheet }) {
             </div>
             <div className="roll">
               <span className="head">GPA : </span>
-              <span className="value">{serverData.GPA}</span>
+              <span className="value">{serverData.GPA ? serverData.GPA:'0'}</span>
             </div>
             <div className="roll">
               <span className="head">Result : </span>

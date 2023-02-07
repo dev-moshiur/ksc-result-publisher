@@ -1,26 +1,19 @@
 .marksheet {
   width: 100%;
-  height: 100%;
   position: fixed;
   padding-bottom: 2rem;
   top: 60px;
   left: 0;
-
   display: flex;
-  
-  flex-direction: column;
-  // position: relative;
   flex-direction: column;
   background-color: #f2f3f4;
   overflow: scroll;
-
   align-items: center;
+  height: 100%;
   .scroll {
     width: 100%;
     overflow: scroll;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
   }
   .buttons {
     width: 90%;
@@ -45,11 +38,12 @@
 
 #pdfDownload {
   width: 595px;
-  height: 841.5px;
+  height: 841px;
   background: #fafafa;
   display: flex;
   flex-direction: column;
-  margin-top: 35rem;
+  margin: 0 auto;
+  
   border-radius: 1rem;
   align-items: center;
   box-shadow: 0 0 5px rgb(218, 214, 214);
@@ -59,12 +53,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: fit-content;
+    margin: 0 auto;
     margin-top: 1rem;
 
-    background-repeat: no-repeat;
-    background-position: 120% 50%;
-    background-size: 150px;
+    
     .schoolName {
       font-size: 2.3rem;
       font-weight: 700;
@@ -78,12 +71,10 @@
     }
   }
   .middle {
-    width: 100%;
+    width: 30rem;
+    margin: 1rem auto;
     display: grid;
-    padding-left: 22rem;
-    margin-top: 1rem;
-
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
     & > * {
       margin-bottom: 0.5rem;
@@ -103,12 +94,12 @@
     }
   }
 
-  @media screen and (max-width: 520px) {
-    .middle {
-      padding-left: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    }
-  }
+  // @media screen and (max-width: 520px) {
+  //   .middle {
+  //     padding-left: 2rem;
+  //     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  //   }
+  // }
   .bottom {
     display: flex;
     flex-direction: column;
