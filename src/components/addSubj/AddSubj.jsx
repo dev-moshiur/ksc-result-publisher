@@ -79,7 +79,7 @@ export default function AddSubj() {
             </datalist>
             
 
-            <label htmlFor="max">Maximum Mark</label>
+            <label htmlFor="max">Full Marks</label>
             <input required type="number" list="max" ref={max} name="max" />
             <datalist id="max">
               <option value="100"></option>
