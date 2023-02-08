@@ -57,6 +57,7 @@ export const reducer = (state, action) => {
         gpa: 0,
         subjInfo: [],
         subjectCount: 0,
+        type:''
       };
     default:
       break;
