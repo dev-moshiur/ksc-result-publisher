@@ -19,12 +19,12 @@ export default function Context({ children }) {
           type: "many",
         },
       });
-    } else {
+    } else if(data.length == 1){
       dispatch({
         type: "setResult",
         value: {
           result: data,
-          type: "single",
+          type: "single"
         },
       });
     }
