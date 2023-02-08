@@ -68,7 +68,7 @@ export default function ({ sendServer, setShowMarksheet }) {
     <div className="marksheet">
       <div className="buttons">
         
-        {sendServer && <button onClick={handleCancle}>Cancel</button>}
+        <button onClick={handleCancle}>Cancel</button>
         <button onClick={genaratePDF}>Download as PDF</button>
         {sendServer && <button onClick={handlePushing}>Send Server</button>}
         
