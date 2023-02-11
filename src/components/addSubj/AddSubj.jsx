@@ -77,15 +77,15 @@ export default function AddSubj() {
               <option value="main"></option>
               <option value="optional"></option>
             </datalist>
-            <label htmlFor="id">Subject ID</label>
+            
 
-            <label htmlFor="max">Maximum Mark</label>
+            <label htmlFor="max">Full Marks</label>
             <input required type="number" list="max" ref={max} name="max" />
             <datalist id="max">
               <option value="100"></option>
               <option value="50"></option>
             </datalist>
-            <input name="reset" type="reset" className="reset" value="Reset" />
+            <input name="reset" type="reset" className="reset" value="Clear form" />
             <input type="submit" value={`Add `} />
           </form>
         </div>

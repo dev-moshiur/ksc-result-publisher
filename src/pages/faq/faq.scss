@@ -48,9 +48,12 @@
                         font-size: 1.6rem;
                     }
                     &:last-child{
+                        background-color: var(--orenge);
+                        padding: 0.3rem;
                         &>*{
                             font-size: 2rem;
                             font-weight: 600;
+                            color: #fff;
                         }
                     }
                     
