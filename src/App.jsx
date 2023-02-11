@@ -11,6 +11,8 @@ import Admin from "./components/admin/Admin";
 import { Route, Routes } from "react-router-dom";
 import SearchedResult from "./components/searchedresult/Searched";
 import Footer from "./components/footer/Footer";
+import Contact from './pages/contact/Contact'
+import Faq from './pages/faq/Faq'
 function App() {
   const { data } = useData();
 
@@ -23,6 +25,8 @@ function App() {
             <Route index element={<Admin />} />
             <Route path="search" element={<Search />} />
             <Route path="searchresult" element={<SearchedResult />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="faq" element={<Faq />} />
           </Route>
         </Routes>
       </div>

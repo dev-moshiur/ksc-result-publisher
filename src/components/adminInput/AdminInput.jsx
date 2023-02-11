@@ -100,7 +100,7 @@ export default function AdminInput() {
     <div className="adminInput">
       <div className="header">Input Data of Every student</div>
       <div className="heading">1.Basic Information</div>
-      <form className="basicInfo">
+      <form className="basicInfo fade">
         <input
           placeholder="Examination Type Or Name"
           ref={examtype}
@@ -141,7 +141,7 @@ export default function AdminInput() {
       </form>
       <div className="heading">2.Subject wise marks</div>
 
-      <form
+      <form className='fade'
         onSubmit={submitAction}>
 
         <label htmlFor="studentName">Student Name</label>

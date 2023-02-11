@@ -1,5 +1,5 @@
 import "./home.scss";
-import React from "react";
+import React,{useState} from "react";
 
 import FormClass from "../formClass/FormClass";
 import FormStudent from "../formStudent/FormStudent";
@@ -8,21 +8,17 @@ import Marksheet from "../marksheet/Marksheet";
 import RowResult from "../rowResult/RowResult";
 import { useData } from "../../context";
 import Loading from "../loading/Loading";
-
 export default function Home() {
   const { dispatch, data } = useData();
-
+  const [showMarksheet, setShowMarksheet] = useState(false)
+  const [formName, setFormName] = useState('student')
   return (
     <div className="home">
       <div className="forms">
         <div className="option">
           <div className="heading">Reault Sheet For</div>
           <select
-            onChange={(e) =>
-              dispatch({
-                type: "changeForm",
-                value: e.target.value,
-              })
+            onChange={(e) =>setFormName(e.target.value)
             }
           >
             <option disabled value="">
@@ -33,14 +29,12 @@ export default function Home() {
           </select>
         </div>
         <div className="subForms">
-          <FormClass />
-          <FormStudent />
+          <FormClass formName={formName}/>
+          <FormStudent formName={formName}/>
         </div>
       </div>
       <div className="results">
         {data.loading && <Loading />}
-        
-        {data.type == "single" && <Marksheet />};
       </div>
     </div>
   );

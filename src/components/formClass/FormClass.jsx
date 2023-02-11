@@ -3,11 +3,12 @@ import React, { useRef, useState } from "react";
 import { useData } from "../../context";
 import { Navigate } from "react-router-dom";
 import Loading from '../loading/Loading'
-export default function FormClass({}) {
+export default function FormClass({formName}) {
   const { data, dispatch } = useData();
 
   const className = useRef();
   const examtype = useRef();
+  const group = useRef()
   const [fetchSuccess, setfetchSuccess] = useState(false);
   const [loading, setLoading] = useState(false)
 
@@ -16,7 +17,7 @@ export default function FormClass({}) {
     setfetchSuccess(false);
     setLoading(true)
     fetch(
-      `https://school-management-api-six.vercel.app/result/?className=${className.current.value}&examtype=${examtype.current.value}`
+      `https://school-management-api-six.vercel.app/result/?className=${className.current.value}&examtype=${examtype.current.value}&group=${group.current.value}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,7 +40,7 @@ export default function FormClass({}) {
   return (
     <>
       {fetchSuccess && <Navigate to="/searchresult" />}
-      <div className={data.formType == "class" ? "class active" : "class"}>
+      <div className={formName == "class" ? "class active" : "class"}>
         
         {loading && <Loading/>}
         
@@ -69,6 +70,15 @@ export default function FormClass({}) {
             max={10}
             min={6}
           />
+          <label htmlFor="group">
+            Group
+          </label>
+          <select name="group" id="" ref={group} placeholder="select from datalist" >
+            <option value="science">science</option>
+            <option value="humanities">humanities</option>
+            <option value="business">business</option>
+            <option value="no group">no group</option>
+          </select>
 
           <input type="reset" className={"reset"} value="Reset" />
           <input type="submit" value="Submit" />

@@ -1,30 +1,45 @@
 import "./formStudent.scss";
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import React from "react";
 import { useData } from "../../context";
-
-export default function FormStudent() {
+import Loading from '../loading/Loading'
+import Marksheet from '../marksheet/Marksheet'
+export default function FormStudent({formName}) {
   const { data, getRequest } = useData();
-
-  
   const examtype = useRef();
   const group = useRef();
   const className = useRef();
   const roll = useRef();
+  const [loading, setLoading] = useState(false)
+  const [result, setResult] = useState([])
+  const [showMarksheet, setShowMarksheet] = useState(false)
   
+  
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+          setLoading(true)
+          const query = `className=${className.current.value}&group=${group.current.value}&roll=${roll.current.value}&examtype=${examtype.current.value}`
+          fetch(`https://school-management-api-six.vercel.app/result/?${query}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length > 0) {
+              setResult(data)
+              setLoading(false)
+              setShowMarksheet(true)
+            }
+
+          });
+    
+  }
 
   return (
-    <div className={data.formType == "student" ? "student active" : "student"}>
+    <div className={formName == "student" ? "student active" : "student"}>
       
       <form
         action=""
-        onSubmit={(e) => {
-          e.preventDefault();
-          getRequest(
-            `className=${className.current.value}&group=${group.current.value}&roll=${roll.current.value}&examtype=${examtype.current.value}`
-          );
-        }}
+        onSubmit={handleSubmit}
       >
+        {loading && <Loading/>}
         <label htmlFor="examType">Exam Name</label>
           <input
             ref={examtype}
@@ -63,6 +78,8 @@ export default function FormStudent() {
         
         
       </form>
+      {result.length>0 && showMarksheet && <Marksheet result={result[0]} setShowMarksheet={setShowMarksheet}/>}
+      
     </div>
   );
 }

@@ -6,9 +6,9 @@ import React from "react";
 import jsPDF from "jspdf";
 import Loading from "../loading/Loading";
 
-export default function ({ sendServer, setShowMarksheet }) {
+export default function ({ sendServer, setShowMarksheet,result }) {
   const { data, dispatch } = useData();
-  const serverData = sendServer ? sendServer(): data.results[0];
+  const serverData = sendServer ? sendServer(): result;
 
   const handlePushing = () => {
     dispatch({
@@ -68,7 +68,7 @@ export default function ({ sendServer, setShowMarksheet }) {
     <div className="marksheet">
       <div className="buttons">
         
-        {sendServer && <button onClick={handleCancle}>Cancel</button>}
+        {result && <button onClick={handleCancle}>Cancel</button>}
         <button onClick={genaratePDF}>Download as PDF</button>
         {sendServer && <button onClick={handlePushing}>Send Server</button>}
         
