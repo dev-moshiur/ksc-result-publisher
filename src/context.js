@@ -10,35 +10,9 @@ export const useData = () => {
 };
 
 export default function Context({ children }) {
-  const insertData = (data) => {
-    if (data.length > 1) {
-      dispatch({
-        type: "setResult",
-        value: {
-          result: data,
-          type: "many",
-        },
-      });
-    } else if(data.length == 1){
-      dispatch({
-        type: "setResult",
-        value: {
-          result: data,
-          type: "single"
-        },
-      });
-    }
-  };
   
-  const postRequest = (bodyData) => {
-    fetch("https://school-management-api-six.vercel.app/result", {
-      method: "post",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(bodyData),
-    })
-      .then((data) => data.json())
-      .then((data) => console.log(data));
-  };
+  
+  
   let intialState = {
     results: [],
     type: "",
@@ -76,8 +50,6 @@ export default function Context({ children }) {
   const allData = {
     data,
     dispatch,
-    
-    postRequest,
   };
   const checkAdmin = () => {
     if (!data.adminChecked) {
