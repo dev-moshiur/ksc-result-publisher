@@ -39,13 +39,15 @@ export default function Searched() {
 
           <form onSubmit={handleSubmit}>
             <div>
-              <label>Total Mark</label>
+              <label>Total Mark :</label>
               <input type={'text'} defaultValue={minTotal } onChange={(e)=>setMinTotal(e.target.value)} placeholder='min'/>
+              <span>To</span>
               <input type={'text'} defaultValue={ maxTotal} onChange={(e)=>setMaxTotal(e.target.value)} placeholder='max'/>
             </div>
             <div>
-              <label>GPA</label>
+              <label>GPA :</label>
               <input type={'text'} defaultValue={ minGPA} onChange={(e)=>setMinGPA(e.target.value)} placeholder='min'/>
+              <span>To</span>
               <input type={'text'} defaultValue={ maxGPA} onChange={(e)=>setMaxGPA(e.target.value)} placeholder='max'/>
             </div>
           </form>

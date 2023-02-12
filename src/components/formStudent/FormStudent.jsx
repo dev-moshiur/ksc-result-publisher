@@ -4,8 +4,9 @@ import React from "react";
 import { useData } from "../../context";
 import Loading from '../loading/Loading'
 import Marksheet from '../marksheet/Marksheet'
+import {Clear} from '@material-ui/icons'
 export default function FormStudent({formName}) {
-  const { data, getRequest } = useData();
+  
   const examtype = useRef();
   const group = useRef();
   const className = useRef();
@@ -13,7 +14,7 @@ export default function FormStudent({formName}) {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState([])
   const [showMarksheet, setShowMarksheet] = useState(false)
-  
+  const [loginMessage, setLoginMessage] = useState(true);
   
   const handleSubmit =(e)=>{
     e.preventDefault();
@@ -40,6 +41,21 @@ export default function FormStudent({formName}) {
         onSubmit={handleSubmit}
       >
         {loading && <Loading/>}
+        {loginMessage && (
+        <div className="message">
+          <span>
+            For Testing Search with <br />
+            <b>Exam Name : Half-Yearly Examination 2023 </b>
+            <br />
+            <b>Class : 10</b>
+            <br />
+            <b>Group : science</b>
+            <br />
+            <b>Roll : 2</b>
+          </span>
+          <Clear onClick={() => setLoginMessage(false)} />
+        </div>
+      )}
         <label htmlFor="examType">Exam Name</label>
           <input
             ref={examtype}

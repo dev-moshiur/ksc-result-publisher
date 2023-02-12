@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { useData } from "../../context";
 import { Navigate } from "react-router-dom";
 import Loading from '../loading/Loading'
+import {Clear} from '@material-ui/icons'
 export default function FormClass({formName}) {
   const { data, dispatch } = useData();
 
@@ -11,6 +12,7 @@ export default function FormClass({formName}) {
   const group = useRef()
   const [fetchSuccess, setfetchSuccess] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [loginMessage, setLoginMessage] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +46,22 @@ export default function FormClass({formName}) {
         
         {loading && <Loading/>}
         
+        
         <form action="" onSubmit={handleSubmit}>
+        {loginMessage && (
+        <div className="message">
+          <span>
+            For Testing Search with <br />
+            <b>Exam Name : Half-Yearly Examination 2023 </b>
+            <br />
+            <b>Class : 10</b>
+            <br />
+            <b>Group : science</b>
+            
+          </span>
+          <Clear onClick={() => setLoginMessage(false)} />
+        </div>
+      )}
           <label htmlFor="examType">Exam Name</label>
           <input
             ref={examtype}
