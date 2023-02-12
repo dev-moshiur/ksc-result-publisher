@@ -58,7 +58,7 @@ export default function ({ sendServer, setShowMarksheet,result }) {
     });
   };
   const handleCancle = () => {
-    if(sendServer){setShowMarksheet(false);}
+    if(!sendServer){setShowMarksheet(false);}
     dispatch({
       type: "imptyMarksheet",
     });
