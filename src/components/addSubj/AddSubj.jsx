@@ -1,17 +1,20 @@
-import { useData } from "../../context";
 import React from "react";
 import "./addSubj.scss";
 import { useRef } from "react";
-import { Clear, Add } from "@material-ui/icons";
-export default function AddSubj() {
+import { Clear } from "@material-ui/icons";
+import {
+  addSubject,
+  removeSubject,
+} from "../../features/inputElement/inputElmSlice";
+import { useSelector, useDispatch } from "react-redux";
+export default function AddSubj({ addSubjOpen, setAddSubjOpen }) {
+  const { inputSubjects } = useSelector((state) => state.inputElement);
+
+  const dispatch = useDispatch();
   const name = useRef();
   const type = useRef();
-
   const max = useRef();
   const form = useRef();
-
-  const { data, dispatch } = useData();
-
   const adding = (e) => {
     e.preventDefault();
     const addData = {
@@ -21,23 +24,17 @@ export default function AddSubj() {
       max: max.current.value,
       placeHolder: name.current.value,
     };
-    dispatch({
-      type: "addSubject",
-      value: addData,
-    });
+    dispatch(addSubject(addData));
   };
   const remove = (name) => {
-    dispatch({
-      type: "removeSubject",
-      value: name,
-    });
+    dispatch(removeSubject(name));
   };
   return (
-    <div className={data.popUp == "addInput" ? "addSubj active" : "addSubj"}>
+    <div className={addSubjOpen ? "addSubj active" : "addSubj"}>
       <div className="container">
         <div className="heading">Current Subjects</div>
         <div className="currentSubj">
-          {data.inputSubjects.map((item) => (
+          {inputSubjects.map((item) => (
             <div onClick={() => remove(item.name)}>
               <span>{item.name}</span>
               <Clear />
@@ -77,7 +74,6 @@ export default function AddSubj() {
               <option value="main"></option>
               <option value="optional"></option>
             </datalist>
-            
 
             <label htmlFor="max">Full Marks</label>
             <input required type="number" list="max" ref={max} name="max" />
@@ -85,19 +81,16 @@ export default function AddSubj() {
               <option value="100"></option>
               <option value="50"></option>
             </datalist>
-            <input name="reset" type="reset" className="reset" value="Clear form" />
+            <input
+              name="reset"
+              type="reset"
+              className="reset"
+              value="Clear form"
+            />
             <input type="submit" value={`Add `} />
           </form>
         </div>
-        <div
-          className="button"
-          onClick={() =>
-            dispatch({
-              type: "changePopUp",
-              value: "",
-            })
-          }
-        >
+        <div className="button" onClick={() => setAddSubjOpen(false)}>
           Exit
         </div>
       </div>

@@ -1,29 +1,12 @@
-import { useData } from "../../context";
 import React from "react";
 import "./popupMessage.scss";
-export default function PopupMessage() {
-  const { data, dispatch } = useData();
+export default function PopupMessage({ popupActive, setPopupActive, message }) {
   return (
-    <div
-      className={
-        data.popUp == "message" ? "popupMessage active" : "popupMessage"
-      }
-    >
+    <div className={popupActive ? "popupMessage active" : "popupMessage"}>
       <div className="container">
-        <div className="text">{data.popupMessage}</div>
+        <div className="text">{message}</div>
       </div>
-      <div
-        onClick={() =>
-          dispatch({
-            type: "changePopUp",
-            value: {
-              name: "",
-              message: "",
-            },
-          })
-        }
-        className="cross"
-      >
+      <div onClick={() => setPopupActive(false)} className="cross">
         <span></span>
         <span></span>
       </div>

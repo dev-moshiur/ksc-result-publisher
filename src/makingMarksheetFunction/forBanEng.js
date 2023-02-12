@@ -1,3 +1,5 @@
+import { upDateMarksheet } from "../features/resultSheet/resulSlice";
+
 const forBanEng = (item, mark, dispatch) => {
   const { name, max } = item;
   let failCount = 0;
@@ -18,9 +20,8 @@ const forBanEng = (item, mark, dispatch) => {
     marks[1] / 1 ? (marks[0] / 1 + marks[1] / 1) / subCount : marks[0] / 1;
   console.log(failCount);
   if (failCount) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: avgmark * subCount,
         fail: failCount,
         gpa: 0,
@@ -31,13 +32,12 @@ const forBanEng = (item, mark, dispatch) => {
           subGreate: "F",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else {
     if (avgmark <= max / 1 && avgmark >= Math.floor((max / 5) * 4)) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 5,
@@ -48,15 +48,14 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "A+",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else if (
       avgmark < Math.floor((max / 5) * 4) &&
       avgmark >= Math.floor((max / 10) * 7)
     ) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 4,
@@ -67,15 +66,14 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "A",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else if (
       avgmark < Math.floor((max / 10) * 7) &&
       avgmark >= Math.floor((max / 10) * 6)
     ) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 3.5,
@@ -86,15 +84,14 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "A-",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else if (
       avgmark < Math.floor((max / 10) * 6) &&
       avgmark >= Math.floor((max / 10) * 5)
     ) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 3,
@@ -105,15 +102,14 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "B",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else if (
       avgmark < Math.floor((max / 10) * 5) &&
       avgmark >= Math.floor((max / 10) * 4)
     ) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 2,
@@ -124,15 +120,14 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "C",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else if (
       avgmark < Math.floor((max / 10) * 4) &&
       avgmark >= Math.floor(max / 3)
     ) {
-      dispatch({
-        type: "upDateMarksheet",
-        value: {
+      dispatch(
+        upDateMarksheet({
           subMark: avgmark * subCount,
           fail: 0,
           gpa: 1,
@@ -143,8 +138,8 @@ const forBanEng = (item, mark, dispatch) => {
             subGreate: "D",
             subMarks: mark,
           },
-        },
-      });
+        })
+      );
     } else {
       console.log("something went wrong");
     }

@@ -1,54 +1,51 @@
+.inputComponent {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  background-color: #fff;
+  row-gap: 0.5rem;
+  color: var(--black);
+  box-shadow: 0 0 1rem rgba($color: #000000, $alpha: 0.1);
+  border-radius: 0.4rem;
 
-.inputComponent{
+  .top {
     display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin: 0.5rem 0rem;
-    background-color: #fff;
-    row-gap: 0.5rem;
-    color: var(--black);
-    box-shadow: 0 0 1rem rgba($color: #000000, $alpha: 0.1);
-    border-radius: 0.4rem;
-    
-    .top{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .feature{
-            display: flex;
-            column-gap: 0.5rem;
-            align-items: center;
-            span{
-                font-size: 1.4rem;
-                font-weight: 500;
-            }
-        }
-        .clear{
-            cursor: pointer;
-            background-color: var(--orenge);
-            padding: 0.3rem 0.6rem;
-            font-size: 1.3rem;
-            color: #fff;
-        }
+    align-items: center;
+    justify-content: space-between;
+    .feature {
+      display: flex;
+      column-gap: 0.5rem;
+      align-items: center;
+      span {
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
     }
-    label {
-        font-size: 1.6rem !important;
-        margin-bottom: 0.3rem;
-        margin-top: 0.3rem;
-        font-weight: 600;
-      }
-      input {
-        border: 1px solid gray;
-        outline: none;
-       
-        font-size: 1.3rem;
-        padding: 0.7rem 0.7rem !important;
-        margin-bottom: 0 !important;
-        border-radius: 0.3rem;
-        background-color: #f2f3f4 !important;
-        color: var(--black) !important;
-        font-weight: 500
-        !important;
-      }
-  
+    .clear {
+      cursor: pointer;
+      background-color: var(--orenge);
+      padding: 0.3rem 0.6rem;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+  }
+  label {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+  input {
+    border: 1px solid gray;
+    outline: none;
+
+    font-size: 1.3rem;
+    padding: 0.7rem 0.7rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 0.3rem;
+    background-color: #f2f3f4 !important;
+    color: var(--black) !important;
+    font-weight: 500 !important;
+  }
 }

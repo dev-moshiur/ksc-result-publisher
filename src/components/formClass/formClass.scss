@@ -38,7 +38,7 @@
       font-weight: 500;
       color: #fff;
       background-color: var(--light-color);
-  
+
       & > * {
         &:last-child {
           cursor: pointer;
@@ -62,7 +62,8 @@
       padding: 0.4rem;
       cursor: pointer;
     }
-    input , select {
+    input,
+    select {
       border: 1px solid #3b444b;
       outline: none;
       margin-bottom: 1rem;
@@ -88,10 +89,10 @@
 @keyframes fafein {
   from {
     opacity: 0;
-transform:translateY(1rem);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;
-transform:translateY(0rem);
+    transform: translateY(0rem);
   }
 }

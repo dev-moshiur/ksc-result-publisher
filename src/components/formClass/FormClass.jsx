@@ -1,41 +1,35 @@
 import "./formClass.scss";
 import React, { useRef, useState } from "react";
-import { useData } from "../../context";
-import { Navigate } from "react-router-dom";
-import Loading from '../loading/Loading'
-import {Clear} from '@material-ui/icons'
-export default function FormClass({formName}) {
-  const { data, dispatch } = useData();
 
+import { Navigate } from "react-router-dom";
+import Loading from "../loading/Loading";
+import { Clear } from "@material-ui/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { setResult } from "../../features/searchedResult/searchedResultSlice";
+
+export default function FormClass({ formName }) {
+  const dispatch = useDispatch();
   const className = useRef();
   const examtype = useRef();
-  const group = useRef()
+  const group = useRef();
   const [fetchSuccess, setfetchSuccess] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [loginMessage, setLoginMessage] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setfetchSuccess(false);
-    setLoading(true)
+    setLoading(true);
     fetch(
       `https://school-management-api-six.vercel.app/result/?className=${className.current.value}&examtype=${examtype.current.value}&group=${group.current.value}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setLoading(false)
+        setLoading(false);
         setfetchSuccess(true);
-        dispatch({
-          type: "setResult",
-          value: {
-            result: data,
-            type: "many",
-          },
-        });
-        dispatch({
-          type: "changeLoading",
-          value: false,
-        });
+        console.log(data);
+
+        dispatch(setResult(data));
       });
   };
 
@@ -43,25 +37,22 @@ export default function FormClass({formName}) {
     <>
       {fetchSuccess && <Navigate to="/searchresult" />}
       <div className={formName == "class" ? "class active" : "class"}>
-        
-        {loading && <Loading/>}
-        
-        
+        {loading && <Loading />}
+
         <form action="" onSubmit={handleSubmit}>
-        {loginMessage && (
-        <div className="message">
-          <span>
-            For Testing Search with <br />
-            <b>Exam Name : Half-Yearly Examination 2023 </b>
-            <br />
-            <b>Class : 10</b>
-            <br />
-            <b>Group : science</b>
-            
-          </span>
-          <Clear onClick={() => setLoginMessage(false)} />
-        </div>
-      )}
+          {loginMessage && (
+            <div className="message">
+              <span>
+                For Testing Search with <br />
+                <b>Exam Name : Half-Yearly Examination 2023 </b>
+                <br />
+                <b>Class : 10</b>
+                <br />
+                <b>Group : science</b>
+              </span>
+              <Clear onClick={() => setLoginMessage(false)} />
+            </div>
+          )}
           <label htmlFor="examType">Exam Name</label>
           <input
             ref={examtype}
@@ -87,10 +78,13 @@ export default function FormClass({formName}) {
             max={10}
             min={6}
           />
-          <label htmlFor="group">
-            Group
-          </label>
-          <select name="group" id="" ref={group} placeholder="select from datalist" >
+          <label htmlFor="group">Group</label>
+          <select
+            name="group"
+            id=""
+            ref={group}
+            placeholder="select from datalist"
+          >
             <option value="science">science</option>
             <option value="humanities">humanities</option>
             <option value="business">business</option>

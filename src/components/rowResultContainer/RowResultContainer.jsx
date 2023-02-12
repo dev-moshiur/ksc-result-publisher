@@ -1,9 +1,9 @@
 import RowResult from "../rowResult/RowResult";
-import { useData } from "../../context";
+
 import React from "react";
 import jsPDF from "jspdf";
 import "./rowResultContainer.scss";
-export default function RowResultContainer({results}) {
+export default function RowResultContainer({ results }) {
   const genaratePDF = () => {
     let doc = new jsPDF("p", "pt", "a2");
     doc.html(document.getElementById("pdfDown"), {
@@ -42,8 +42,7 @@ export default function RowResultContainer({results}) {
               </tr>
             </thead>
             <tbody>
-              {results &&
-                results.map((elm) => <RowResult data={elm} />)}
+              {results && results.map((elm) => <RowResult data={elm} />)}
             </tbody>
           </table>
         </div>

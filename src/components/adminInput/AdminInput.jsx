@@ -1,20 +1,26 @@
 import React from "react";
-
 import { useRef, useState } from "react";
 import "./adminInput.scss";
-
-import { useData } from "../../context";
 import subjectMap from "../../makingMarksheetFunction/subjectMap";
-import Loading from "../loading/Loading";
-
+import AddSubj from "../addSubj/AddSubj";
 import Marksheet from "../marksheet/Marksheet";
 import InputComponent from "../inputComponent/InputComponent";
+import PopupMessage from "../popupMessage/PopupMessage";
 
+import { useSelector, useDispatch } from "react-redux";
 export default function AdminInput() {
+  const { total, fail, gpa, subjectCount, cgpa, subjInfo } = useSelector(
+    (state) => state.resultSheet
+  );
+  const { inputSubjects } = useSelector((state) => state.inputElement);
+  const { results } = useSelector((state) => state.searchedResult);
+  const dispatch = useDispatch();
+  const [popupActive, setPopupActive] = useState(false);
+
+  const [popupMessage, setPopupMessage] = useState("");
+
   const [showMarksheet, setShowMarksheet] = useState(false);
-
-  const { data, dispatch } = useData();
-
+  const [addSubjOpen, setAddSubjOpen] = useState(false);
   let examtype = useRef();
   let className = useRef();
   let group = useRef();
@@ -22,7 +28,7 @@ export default function AdminInput() {
   let roll = useRef();
 
   const makeMarksheet = () => {
-    data.inputSubjects.forEach((item) => subjectMap(item, dispatch));
+    inputSubjects.forEach((item) => subjectMap(item, dispatch));
   };
 
   const fixGrade = (gpa) => {
@@ -42,32 +48,33 @@ export default function AdminInput() {
       return "F";
     }
   };
-  const addSubjFormActive = (e) => {
-    e.preventDefault();
-    dispatch({
-      type: "changePopUp",
-      value: {
-        name: "addInput",
-        message: "",
-      },
-    });
+  const basicInfoFiled = () => {
+    if (
+      examtype.current.value &&
+      className.current.value &&
+      group.current.value
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
   const submitAction = (e) => {
     e.preventDefault();
-    makeMarksheet();
-    console.log(data.results[0]);
+    if (basicInfoFiled()) {
+      makeMarksheet();
 
-    fixGrade(
-      !data.fail &&
-        (
-          (data.gpa / data.subjectCount > 5
-            ? 5
-            : data.gpa / data.subjectCount) / 1
-        ).toFixed(2)
-    );
-    setShowMarksheet(true);
+      fixGrade(
+        !fail &&
+          ((gpa / subjectCount > 5 ? 5 : gpa / subjectCount) / 1).toFixed(2)
+      );
+      setShowMarksheet(true);
+    } else {
+      setPopupMessage("Fill up number 1 form at first");
+      setPopupActive(true);
+    }
   };
-  function sendServer() {
+  function sendServerData() {
     return {
       studentName: studentName.current.value,
       schoolName: `Khalshi High School`,
@@ -75,25 +82,16 @@ export default function AdminInput() {
       group: group.current.value,
       className: className.current.value,
       roll: roll.current.value / 1,
-
       GPA:
-        !data.fail &&
-        (
-          (data.gpa / data.subjectCount > 5
-            ? 5
-            : data.gpa / data.subjectCount) / 1
-        ).toFixed(2),
+        !fail &&
+        ((gpa / subjectCount > 5 ? 5 : gpa / subjectCount) / 1).toFixed(2),
       greade: fixGrade(
-        !data.fail &&
-          (
-            (data.gpa / data.subjectCount > 5
-              ? 5
-              : data.gpa / data.subjectCount) / 1
-          ).toFixed(2)
+        !fail &&
+          ((gpa / subjectCount > 5 ? 5 : gpa / subjectCount) / 1).toFixed(2)
       ),
-      totalMark: data.total,
-      subjectCount: data.subjInfo.length,
-      subjets: data.subjInfo,
+      totalMark: total,
+      subjectCount: subjInfo.length,
+      subjets: subjInfo,
     };
   }
 
@@ -142,18 +140,22 @@ export default function AdminInput() {
       </form>
       <div className="heading">2.Subject wise marks</div>
 
-      <form className='fade'
-        onSubmit={submitAction}>
-
+      <form className="fade" onSubmit={submitAction}>
         <label htmlFor="studentName">Student Name</label>
         <input required ref={studentName} name="studentName" type="text" />
         <label htmlFor="roll">Roll</label>
         <input required ref={roll} name="roll" type="number" />
-        {data.inputSubjects.map((item) => (
-          <InputComponent subject ={item}/>
-          
+        {inputSubjects.map((item) => (
+          <InputComponent subject={item} />
         ))}
-        <button onClick={addSubjFormActive}>Add more subjects</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setAddSubjOpen(true);
+          }}
+        >
+          Add more subjects
+        </button>
         <input
           type="reset"
           className="reset"
@@ -162,13 +164,20 @@ export default function AdminInput() {
         />
         <input type="submit" value="Submit" />
       </form>
-
       {showMarksheet && (
         <Marksheet
-          sendServer={sendServer}
+          sendServerData={sendServerData}
           setShowMarksheet={setShowMarksheet}
+          setPopupActive={setPopupActive}
+          setPopupMessage={setPopupMessage}
         />
       )}
+      <AddSubj addSubjOpen={addSubjOpen} setAddSubjOpen={setAddSubjOpen} />
+      <PopupMessage
+        popupActive={popupActive}
+        setPopupActive={setPopupActive}
+        message={popupMessage}
+      />
     </div>
   );
 }

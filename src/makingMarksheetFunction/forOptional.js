@@ -1,10 +1,11 @@
+import { upDateMarksheet } from "../features/resultSheet/resulSlice";
+
 const forOptional = (item, mark, dispatch) => {
   const { name, max } = item;
 
   if (mark <= max / 1 && mark >= Math.floor((max / 5) * 4)) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 3,
@@ -15,15 +16,14 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "A+",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (
     mark < Math.floor((max / 5) * 4) &&
     mark >= Math.floor((max / 10) * 7)
   ) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 2,
@@ -34,15 +34,14 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "A",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (
     mark < Math.floor((max / 10) * 7) &&
     mark >= Math.floor((max / 10) * 6)
   ) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 1.5,
@@ -53,15 +52,14 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "A-",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (
     mark < Math.floor((max / 10) * 6) &&
     mark >= Math.floor((max / 10) * 5)
   ) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 1,
@@ -72,15 +70,14 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "B",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (
     mark < Math.floor((max / 10) * 5) &&
     mark >= Math.floor((max / 10) * 4)
   ) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 0,
@@ -91,12 +88,11 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "C",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (mark < Math.floor((max / 10) * 4) && mark >= Math.floor(max / 3)) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 0,
@@ -107,12 +103,11 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "D",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else if (mark < Math.floor(max / 3) && mark >= 0) {
-    dispatch({
-      type: "upDateMarksheet",
-      value: {
+    dispatch(
+      upDateMarksheet({
         subMark: mark / 1,
         fail: 0,
         gpa: 0,
@@ -123,8 +118,8 @@ const forOptional = (item, mark, dispatch) => {
           subGreate: "F",
           subMarks: mark,
         },
-      },
-    });
+      })
+    );
   } else {
   }
 };

@@ -40,7 +40,7 @@
       font-weight: 500;
       color: #fff;
       background-color: var(--light-color);
-  
+
       & > * {
         &:last-child {
           cursor: pointer;
@@ -53,7 +53,8 @@
       margin-bottom: 0.3rem;
       margin-top: 0.3rem;
     }
-    input,select {
+    input,
+    select {
       border: 1px solid #3b444b;
       outline: none;
       margin-bottom: 1rem;

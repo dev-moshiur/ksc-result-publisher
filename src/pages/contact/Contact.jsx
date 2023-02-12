@@ -1,9 +1,5 @@
-
-
-import React from 'react'
-import './contact.scss'
+import React from "react";
+import "./contact.scss";
 export default function Contact() {
-  return (
-    <div>Contact</div>
-  )
+  return <div>Contact</div>;
 }

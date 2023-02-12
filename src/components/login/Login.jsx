@@ -11,11 +11,6 @@ export default function Login() {
   let password = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "changeLoading",
-      value: true,
-    });
-
     fetch(`https://school-management-api-six.vercel.app/register/login`, {
       method: "post",
       headers: { "Content-type": "application/json" },
@@ -26,15 +21,7 @@ export default function Login() {
         password: password.current.value,
       }),
     }).then((res) => {
-      dispatch({
-        type: "changeLoading",
-        value: false,
-      });
       if (res.status == 200) {
-        dispatch({
-          type: "setAdmin",
-          value: true,
-        });
       } else {
       }
     });
@@ -62,7 +49,7 @@ export default function Login() {
         <input required ref={email} type="email" name="email" />
         <label htmlFor="password">Password</label>
         <input required ref={password} type="password" name="password" />
-<input className={"blue"} type="submit" value="Submit" />
+        <input className={"blue"} type="submit" value="Submit" />
       </form>
     </div>
   );
