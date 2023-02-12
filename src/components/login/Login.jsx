@@ -62,8 +62,7 @@ export default function Login() {
         <input required ref={email} type="email" name="email" />
         <label htmlFor="password">Password</label>
         <input required ref={password} type="password" name="password" />
-        <input className={"blue"} type="reset" value="Reset" />
-        <input className={"blue"} type="submit" value="Submit" />
+<input className={"blue"} type="submit" value="Submit" />
       </form>
     </div>
   );
