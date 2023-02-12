@@ -1,13 +1,13 @@
 import "./home.scss";
 import React,{useState} from "react";
 
-import FormClass from "../formClass/FormClass";
-import FormStudent from "../formStudent/FormStudent";
+import FormClass from "../../components/formClass/FormClass";
+import FormStudent from "../../components/formStudent/FormStudent";
 
-import Marksheet from "../marksheet/Marksheet";
-import RowResult from "../rowResult/RowResult";
+import Marksheet from "../../components/marksheet/Marksheet";
+import RowResult from "../../components/rowResult/RowResult";
 import { useData } from "../../context";
-import Loading from "../loading/Loading";
+import Loading from "../../components/loading/Loading";
 export default function Home() {
   const { dispatch, data } = useData();
   const [showMarksheet, setShowMarksheet] = useState(false)

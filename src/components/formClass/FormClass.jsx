@@ -81,7 +81,7 @@ export default function FormClass({formName}) {
           </select>
 
           <input type="reset" className={"reset"} value="Reset" />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Search" />
         </form>
       </div>
     </>

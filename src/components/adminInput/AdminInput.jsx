@@ -6,6 +6,7 @@ import "./adminInput.scss";
 import { useData } from "../../context";
 import subjectMap from "../../makingMarksheetFunction/subjectMap";
 import Loading from "../loading/Loading";
+
 import Marksheet from "../marksheet/Marksheet";
 import InputComponent from "../inputComponent/InputComponent";
 

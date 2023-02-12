@@ -1,6 +1,7 @@
 import React from "react";
-import AdminInput from "../adminInput/AdminInput";
-import Login from "../login/Login";
+import AdminInput from "../../components/adminInput/AdminInput";
+
+import Login from "../../components/login/Login";
 import { useData } from "../../context";
 import "./admin.scss";
 export default function Admin() {

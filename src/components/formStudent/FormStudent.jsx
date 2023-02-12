@@ -74,7 +74,7 @@ export default function FormStudent({formName}) {
           <option value="no group"></option>
         </datalist>
         <input ref={roll} required type="number" min={1} name="rool" id="" />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
         
         
       </form>
