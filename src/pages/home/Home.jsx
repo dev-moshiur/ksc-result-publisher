@@ -10,14 +10,19 @@ export default function Home() {
     <div className="home">
       <div className="forms">
         <div className="option">
-          <div className="heading">Reault Sheet For</div>
+          <div className="heading">Search Reault</div>
+          <div className="formType">
+            <label htmlFor="">Select Form : </label>
           <select onChange={(e) => setFormName(e.target.value)}>
             <option disabled value="">
               Select Option
             </option>
-            <option value="student">Student</option>
-            <option value="class">Class</option>
+            <option value="student">Student Result Form</option>
+            <option value="class">Class Result Form</option>
           </select>
+
+          </div>
+          
         </div>
         <div className="subForms">
           <FormClass formName={formName} />
