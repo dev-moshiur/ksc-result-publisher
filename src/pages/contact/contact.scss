@@ -35,6 +35,9 @@
                 width: 90%;
                 color: var(--black);
                 font-size: 1.5rem;
+                &:focus{
+                    border-color: gray;
+                }
                 
             }
 
@@ -52,6 +55,9 @@
             width: 96%;
             color: var(--black);
             font-size: 1.5rem;
+            &:focus{
+                border-color: gray;
+            }
             
         }
 
