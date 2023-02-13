@@ -97,7 +97,7 @@ export default function AdminInput() {
 
   return (
     <div className="adminInput">
-      <div className="header">Input Data of Every student</div>
+      <div className="header">Publish Result</div>
       <div className="heading">1.Basic Information</div>
       <form className="basicInfo fade">
         <input
