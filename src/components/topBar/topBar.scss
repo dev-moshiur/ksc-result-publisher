@@ -6,14 +6,15 @@
   left: 0;
   z-index: 20;
   background: #ba68ca;
-  color: white;
+  background-color: rgba(249, 250, 251,0.9);
+  color:var(--black);
   padding: 0px 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 1rem rgba($color: #ba68ca, $alpha: 0.1);
   .logo {
-    color: #fff;
+    color:var(--black);
     font-size: 2rem;
     font-weight: 600;
     cursor: pointer;
@@ -37,7 +38,7 @@
         justify-content: center;
         align-items: center;
         & > * {
-          color: #fff;
+          color:var(--black);
           font-size: 2.6rem;
         }
       }
@@ -114,7 +115,12 @@
       padding: 0.3rem 0.6rem;
       border-radius: 0.2rem;
       transition: 0.3s;
-      color: #fff;
+      color:var(--black);
+      &:hover{
+        background-color: var(--light-color);
+        color: #fff;
+
+      }
       &:last-child {
         margin-left: 3rem;
         border: 1px solid #fff;
@@ -124,9 +130,11 @@
         &:first-child {
           font-size: 2.2rem;
         }
+
       }
       &.active {
         background-color: var(--light-color);
+        color: #fff;
       }
     }
   }
