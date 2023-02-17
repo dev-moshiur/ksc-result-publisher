@@ -12,7 +12,7 @@ export default function TopBar() {
 
   return (
     <div className="topBar">
-      <div className="logo">Rana Result Publisher</div>
+      <div className="logo">KSC Result Publisher</div>
       <div className="left">
         <Link className={pathname == "/" ? "active" : ""} to="/">
           Home
