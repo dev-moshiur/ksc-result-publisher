@@ -19,12 +19,10 @@ In the project directory, you will find these feature: \
 <span style="color:#00C49F">**1. Fully Responsive** </span> \
 <span style="color:#00C49F">**2. Admin page** </span> \
 <span style="color:#00C49F">**3. Login & Register page using jwt** </span> \
-<span style="color:#00C49F">**4. Home, FAQ's, Contact , Admin Page . The home page has
-Navbar, A real stick Footer . **<span> \
+<span style="color:#00C49F">**4. Home, FAQ's, Contact , Admin Page . The home page has Navbar, A real stick Footer . **</span> \
 <span style="color:#00C49F">**5. Users can search result,filter result and download PDF result sheets.Admin can publish result
 filling forms.** </span> \
 <span style="color:#00C49F">**6. Results are generated according to the standard academic grading system of Bangladesh.** </span>\
-
 
 ## **`Useful Links`**
 
