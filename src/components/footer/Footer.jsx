@@ -4,7 +4,7 @@ import "./footer.scss";
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="left">Copywrite 2023 by Khalshi High School</div>
+      <div className="left">Copywrite 2023 by MD Moshiur Rahman</div>
       <div className="right">
         <Facebook />
         <Twitter />
