@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import RowResultContainer from "../rowResultContainer/RowResultContainer";
 export default function Searched() {
   const { results } = useSelector((state) => state.searchedResult);
-  console.log(results);
+  
   const [pageData, setPageData] = useState(results);
   const [showFilter, setShowFilter] = useState(false);
   const [minTotal, setMinTotal] = useState(400);
@@ -17,7 +17,8 @@ export default function Searched() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     setShowFilter((pre) => !pre);
     const filteredData = results.filter(
       (item) =>
@@ -76,12 +77,13 @@ export default function Searched() {
                   placeholder="max"
                 />
               </div>
-            </form>
-          </div>
-          <button>
+              <button>
             <Search />
             <span onClick={handleSearch}>Search</span>
           </button>
+            </form>
+          </div>
+
         </div>
       )}
       <div className="results">
