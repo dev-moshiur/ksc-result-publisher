@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <div className={"login"}>
       <div className={"heading"}>Login</div>
-      {data.loading && <Loading />}
+      <Loading loading={loading}/>
       {loginMessage && (
         <div className="message">
           <span>

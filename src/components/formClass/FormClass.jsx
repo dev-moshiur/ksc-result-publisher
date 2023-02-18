@@ -37,7 +37,7 @@ export default function FormClass({ formName }) {
     <>
       {fetchSuccess && <Navigate to="/searchresult" />}
       <div className={formName == "class" ? "class active" : "class"}>
-        {loading && <Loading />}
+        <Loading loading={loading}/>
 
         <form action="" onSubmit={handleSubmit}>
           {loginMessage && (

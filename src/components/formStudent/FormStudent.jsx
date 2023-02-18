@@ -32,7 +32,7 @@ export default function FormStudent({ formName }) {
   return (
     <div className={formName == "student" ? "student active" : "student"}>
       <form action="" onSubmit={handleSubmit}>
-        {loading && <Loading />}
+      <Loading loading={loading}/>
         {loginMessage && (
           <div className="message">
             <span>

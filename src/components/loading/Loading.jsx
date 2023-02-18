@@ -2,11 +2,11 @@ import React from "react";
 
 import "./loading.scss";
 
-import load from "../Loading_2.gif";
+import load from "./loading.gif";
 
-export default function Loading() {
+export default function Loading({loading}) {
   return (
-    <div className="loading">
+    <div className={loading ? "loading active" : "loading"}>
       <img src={load} alt="" />
     </div>
   );

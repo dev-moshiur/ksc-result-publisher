@@ -1,11 +1,24 @@
 .loading {
   width: 100%;
-  height: fit-content;
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: rgba($color: #fff, $alpha: 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  &.active{
+    visibility: visible;
+    opacity: 1;
+  }
   img {
     width: 10rem;
     height: 10rem;
+    background-color: #fff;
+    box-sizing: 0 0 1rem rgba($color: #000, $alpha: 0.15) ;
   }
 }
