@@ -13,9 +13,11 @@ export default function FormStudent({ formName }) {
   const [result, setResult] = useState([]);
   const [showMarksheet, setShowMarksheet] = useState(false);
   const [loginMessage, setLoginMessage] = useState(true);
+  const [noResult, setNoResult] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setNoResult(false)
     setLoading(true);
     const query = `className=${className.current.value}&group=${group.current.value}&roll=${roll.current.value}&examtype=${examtype.current.value}`;
     fetch(`https://school-management-api-six.vercel.app/result/?${query}`)
@@ -25,6 +27,10 @@ export default function FormStudent({ formName }) {
           setResult(data);
           setLoading(false);
           setShowMarksheet(true);
+        }
+        else{
+          setNoResult(true)
+          setLoading(false);
         }
       });
   };
@@ -95,6 +101,7 @@ export default function FormStudent({ formName }) {
         <input ref={roll} required type="number" min={1} name="rool" id="" />
         <input type="submit" value="Search" />
       </form>
+      {noResult && <div className="noresult"> No Resilt Found</div>}
       {result.length > 0 && showMarksheet && (
         <Marksheet result={result[0]} setShowMarksheet={setShowMarksheet} />
       )}
