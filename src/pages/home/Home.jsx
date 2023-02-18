@@ -10,7 +10,7 @@ export default function Home() {
     <div className="home">
       <div className="forms">
         <div className="option">
-          <div className="heading">Search Reault</div>
+          <div className="heading">Search Result</div>
           <div className="formType">
             <label htmlFor="">Select Form : </label>
           <select onChange={(e) => setFormName(e.target.value)}>

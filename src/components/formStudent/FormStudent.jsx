@@ -101,7 +101,7 @@ export default function FormStudent({ formName }) {
         <input ref={roll} required type="number" min={1} name="rool" id="" />
         <input type="submit" value="Search" />
       </form>
-      <div className={noResult ? "noresult active" : 'noresult'}> No Resilt Found</div>
+      <div className={noResult ? "noresult active" : 'noresult'}> No Result Found</div>
       {result.length > 0 && showMarksheet && (
         <Marksheet result={result[0]} setShowMarksheet={setShowMarksheet} />
       )}

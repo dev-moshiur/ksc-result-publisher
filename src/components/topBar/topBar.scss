@@ -1,12 +1,12 @@
 .topBar {
-  height: 60px;
+  height: 75px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 20;
   background: #ba68ca;
-  background-color: rgba(249, 250, 251,0.9);
+  background-color: rgba(221, 224, 228, 0.9);
   color:var(--black);
   padding: 0px 2%;
   display: flex;
@@ -15,7 +15,7 @@
   box-shadow: 0 0 1rem rgba($color: #ba68ca, $alpha: 0.1);
   .logo {
     color:var(--black);
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 600;
     cursor: pointer;
   }
