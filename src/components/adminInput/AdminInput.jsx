@@ -59,18 +59,31 @@ export default function AdminInput() {
       return false;
     }
   };
+  const minimumTreeSubject = () => {
+    if (
+      inputSubjects.length >=3
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  
   const submitAction = (e) => {
     e.preventDefault();
-    if (basicInfoFiled()) {
+    if (basicInfoFiled() && minimumTreeSubject()) {
       makeMarksheet();
-
       fixGrade(
         !fail &&
           ((gpa / subjectCount > 5 ? 5 : gpa / subjectCount) / 1).toFixed(2)
       );
       setShowMarksheet(true);
-    } else {
+    } else if(!basicInfoFiled()){
       setPopupMessage("Fill up number 1 form at first");
+      setPopupActive(true);
+    }
+     else if(!minimumTreeSubject()){
+      setPopupMessage("At least 3 Subject Needed");
       setPopupActive(true);
     }
   };
