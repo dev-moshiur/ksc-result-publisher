@@ -79,7 +79,7 @@ export default function AdminInput() {
       studentName: studentName.current.value,
       schoolName: `Khalshi High School`,
       examtype: examtype.current.value,
-      group: group.current.value,
+      group: group.current.value.toLowerCase(),
       className: className.current.value,
       roll: roll.current.value / 1,
       GPA:
@@ -131,10 +131,10 @@ export default function AdminInput() {
           placeholder="Group"
         />
         <datalist id="group">
-          <option value="science"></option>
-          <option value="humanities"></option>
-          <option value="business"></option>
-          <option value="no group"></option>
+          <option value="Science"></option>
+          <option value="Humanities"></option>
+          <option value="Business"></option>
+          <option value="No group"></option>
         </datalist>
         <input type="reset" value={"Clear Form"} placeholder="Reset" />
       </form>
