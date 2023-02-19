@@ -1,10 +1,10 @@
 .addSubj {
   position: fixed;
-  top: 50px;
+  top: 75px;
   left: -100%;
   z-index: 19;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 75px);
   display: flex;
   transition: 0.7s;
   justify-content: center;
