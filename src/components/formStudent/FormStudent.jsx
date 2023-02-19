@@ -19,7 +19,7 @@ export default function FormStudent({ formName }) {
     e.preventDefault();
     setNoResult(false)
     setLoading(true);
-    const query = `className=${className.current.value}&group=${group.current.value}&roll=${roll.current.value}&examtype=${examtype.current.value}`;
+    const query = `className=${className.current.value}&group=${group.current.value.toLowerCase()}&roll=${roll.current.value}&examtype=${examtype.current.value}`;
     fetch(`https://school-management-api-six.vercel.app/result/?${query}`)
       .then((res) => res.json())
       .then((data) => {
@@ -81,23 +81,20 @@ export default function FormStudent({ formName }) {
           id=""
         />
 
-        <label htmlFor="group">Group</label>
-        <input
-          ref={group}
-          required
-          type="text"
-          list="group"
-          name="group"
-          placeholder="select from datalist"
-          id=""
-        />
+          <label htmlFor="group">Group</label>
+          <select
+            name="group"
+            id=""
+            ref={group}
+            placeholder="select from datalist"
+          >
+            <option value="science">Science</option>
+            <option value="humanities">Humanities</option>
+            <option value="business">Business</option>
+            <option value="no group">No group</option>
+          </select>
         <label htmlFor="rool">Roll</label>
-        <datalist id="group">
-          <option value="science"></option>
-          <option value="humanities"></option>
-          <option value="business"></option>
-          <option value="no group"></option>
-        </datalist>
+
         <input ref={roll} required type="number" min={1} name="rool" id="" />
         <input type="submit" value="Search" />
       </form>

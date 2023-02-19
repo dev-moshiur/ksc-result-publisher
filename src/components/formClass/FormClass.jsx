@@ -85,10 +85,10 @@ export default function FormClass({ formName }) {
             ref={group}
             placeholder="select from datalist"
           >
-            <option value="science">science</option>
-            <option value="humanities">humanities</option>
-            <option value="business">business</option>
-            <option value="no group">no group</option>
+            <option value="science">Science</option>
+            <option value="humanities">Humanities</option>
+            <option value="business">Business</option>
+            <option value="no group">No group</option>
           </select>
           <input type="submit" value="Search" />
         </form>
