@@ -83,7 +83,7 @@ export default function AdminInput() {
       setPopupActive(true);
     }
      else if(!minimumTreeSubject()){
-      setPopupMessage("At least 3 Subject Needed");
+      setPopupMessage("At least 3 Subjects Needed");
       setPopupActive(true);
     }
   };
