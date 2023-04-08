@@ -5,10 +5,12 @@ import { Clear } from "@material-ui/icons";
 import {
   addSubject,
   removeSubject,
+  setSubject
 } from "../../features/inputElement/inputElmSlice";
 import { useSelector, useDispatch } from "react-redux";
 export default function AddSubj({ addSubjOpen, setAddSubjOpen }) {
   const { inputSubjects } = useSelector((state) => state.inputElement);
+  
 
   const dispatch = useDispatch();
   const name = useRef();
@@ -25,6 +27,8 @@ export default function AddSubj({ addSubjOpen, setAddSubjOpen }) {
       placeHolder: name.current.value,
     };
     dispatch(addSubject(addData));
+    console.log(inputSubjects);
+    
   };
   const remove = (name) => {
     dispatch(removeSubject(name));

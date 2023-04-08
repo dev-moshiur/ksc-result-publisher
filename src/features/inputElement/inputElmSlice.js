@@ -21,6 +21,9 @@ export const inputElmSlice = createSlice({
     ],
   },
   reducers: {
+    setSubject: (state, action) => {
+      state.inputSubjects = [...action.payload];
+    },
     addSubject: (state, action) => {
       state.inputSubjects = [...state.inputSubjects, action.payload];
     },
@@ -33,6 +36,6 @@ export const inputElmSlice = createSlice({
   },
 });
 
-export const { addSubject, removeSubject } = inputElmSlice.actions;
+export const { addSubject, removeSubject ,setSubject } = inputElmSlice.actions;
 
 export default inputElmSlice.reducer;
