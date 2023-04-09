@@ -31,7 +31,7 @@ export default function Faq() {
     },
   ];
   return (
-    <div className="faq">
+    <div className="faq fade">
       <div className="heading">FAQ's</div>
       <div className="container">
         {qna.map((elm, index) => (

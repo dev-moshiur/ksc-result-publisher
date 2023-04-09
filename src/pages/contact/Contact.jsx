@@ -4,7 +4,7 @@ export default function Contact() {
   const handleSubmit =(e) =>{
     e.preventDefault()
   }
-  return <div className="contact">
+  return <div className="contact fade">
     
     <div className="heading">
       Get In Touch
