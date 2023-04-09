@@ -6,7 +6,7 @@
   left: 0;
   z-index: 20;
   background: #ba68ca;
-  background-color: rgba(221, 224, 228, 0.9);
+  background-color: rgba(190, 216, 248, 0.99);
   color:var(--black);
   padding: 0px 0%;
   display: flex;
@@ -123,6 +123,7 @@
       color:var(--black);
       display: flex;
       align-items: center;
+      column-gap: 4px;
       &>*{
         &:first-child{
           font-size: 2rem;
@@ -139,6 +140,7 @@
         display: flex;
         align-items: center;
         column-gap: 0.4rem;
+        cursor: pointer;
         &>*{
 
       

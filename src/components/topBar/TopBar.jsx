@@ -28,7 +28,7 @@ export default function TopBar() {
           <SupervisedUserCircle />
           <span>Admin</span>
         </Link>
-        <div onClick={()=>setShowDeveloper(true)} >
+        <div onClick={()=>{setShowDeveloper(true);setActiveToggleMenu(false)}} >
           <Code />
           <span>Developer</span>
         </div>
@@ -63,7 +63,7 @@ export default function TopBar() {
                 <SupervisedUserCircle />
                 <span>Admin</span>
               </Link>
-              <div onClick={()=>setShowDeveloper(true)} >
+              <div onClick={()=>{setShowDeveloper(true);setActiveToggleMenu(false)}} >
                 <Code />
                 <span>Developer</span>
               </div>
