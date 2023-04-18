@@ -36,6 +36,6 @@ export const inputElmSlice = createSlice({
   },
 });
 
-export const { addSubject, removeSubject ,setSubject } = inputElmSlice.actions;
+export const { addSubject, removeSubject, setSubject } = inputElmSlice.actions;
 
 export default inputElmSlice.reducer;

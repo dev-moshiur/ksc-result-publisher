@@ -26,30 +26,30 @@
         margin-bottom: 2rem;
         margin-top: 3rem;
       }
-      .formType{
+      .formType {
         display: flex;
         align-items: center;
         justify-content: center;
         column-gap: 0.5rem;
-        label{
+        label {
           font-size: 1.6rem;
           color: var(--black);
           font-weight: 600;
           padding-bottom: 0.8rem;
         }
-      select {
-        cursor: pointer;
-        border: none;
-        padding: 0.6rem 1.4rem;
-        border-radius: 0.4rem;
-        font-size: 1.45rem;
-        color: var(--black);
-        font-weight: 600;
-        outline: none;
-        background: #f2f3f4;
-        margin-bottom: 1rem;
+        select {
+          cursor: pointer;
+          border: none;
+          padding: 0.6rem 1.4rem;
+          border-radius: 0.4rem;
+          font-size: 1.45rem;
+          color: var(--black);
+          font-weight: 600;
+          outline: none;
+          background: #f2f3f4;
+          margin-bottom: 1rem;
+        }
       }
-    }
     }
     .subForms {
       width: 90%;

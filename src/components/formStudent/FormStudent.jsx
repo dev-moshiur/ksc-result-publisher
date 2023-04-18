@@ -13,13 +13,17 @@ export default function FormStudent({ formName }) {
   const [result, setResult] = useState([]);
   const [showMarksheet, setShowMarksheet] = useState(false);
   const [loginMessage, setLoginMessage] = useState(true);
-  const [noResult, setNoResult] = useState(false)
+  const [noResult, setNoResult] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setNoResult(false)
+    setNoResult(false);
     setLoading(true);
-    const query = `className=${className.current.value}&group=${group.current.value.toLowerCase()}&roll=${roll.current.value}&examtype=${examtype.current.value}`;
+    const query = `className=${
+      className.current.value
+    }&group=${group.current.value.toLowerCase()}&roll=${
+      roll.current.value
+    }&examtype=${examtype.current.value}`;
     fetch(`https://school-management-api-six.vercel.app/result/?${query}`)
       .then((res) => res.json())
       .then((data) => {
@@ -27,9 +31,8 @@ export default function FormStudent({ formName }) {
           setResult(data);
           setLoading(false);
           setShowMarksheet(true);
-        }
-        else{
-          setNoResult(true)
+        } else {
+          setNoResult(true);
           setLoading(false);
         }
       });
@@ -38,7 +41,7 @@ export default function FormStudent({ formName }) {
   return (
     <div className={formName == "student" ? "student active" : "student"}>
       <form action="" onSubmit={handleSubmit}>
-      <Loading loading={loading}/>
+        <Loading loading={loading} />
         {loginMessage && (
           <div className="message">
             <span>
@@ -81,24 +84,27 @@ export default function FormStudent({ formName }) {
           id=""
         />
 
-          <label htmlFor="group">Group</label>
-          <select
-            name="group"
-            id=""
-            ref={group}
-            placeholder="select from datalist"
-          >
-            <option value="science">Science</option>
-            <option value="humanities">Humanities</option>
-            <option value="business">Business</option>
-            <option value="no group">No group</option>
-          </select>
+        <label htmlFor="group">Group</label>
+        <select
+          name="group"
+          id=""
+          ref={group}
+          placeholder="select from datalist"
+        >
+          <option value="science">Science</option>
+          <option value="humanities">Humanities</option>
+          <option value="business">Business</option>
+          <option value="no group">No group</option>
+        </select>
         <label htmlFor="rool">Roll</label>
 
         <input ref={roll} required type="number" min={1} name="rool" id="" />
         <input type="submit" value="Search" />
       </form>
-      <div className={noResult ? "noresult active" : 'noresult'}> No Result Found</div>
+      <div className={noResult ? "noresult active" : "noresult"}>
+        {" "}
+        No Result Found
+      </div>
       {result.length > 0 && showMarksheet && (
         <Marksheet result={result[0]} setShowMarksheet={setShowMarksheet} />
       )}

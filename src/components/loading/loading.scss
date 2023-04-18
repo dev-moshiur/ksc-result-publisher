@@ -11,7 +11,7 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.2s;
-  &.active{
+  &.active {
     visibility: visible;
     opacity: 1;
   }
@@ -19,6 +19,6 @@
     width: 17rem;
     height: 17rem;
     background-color: #fff;
-    box-sizing: 0 0 1rem rgba($color: #000, $alpha: 0.15) ;
+    box-sizing: 0 0 1rem rgba($color: #000, $alpha: 0.15);
   }
 }

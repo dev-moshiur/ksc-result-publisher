@@ -55,7 +55,7 @@ export default function ({
         <button onClick={genaratePDF}>Download as PDF</button>
         {sendServerData && <button onClick={handlePushing}>Send Server</button>}
       </div>
-      <Loading loading={loading}/>
+      <Loading loading={loading} />
 
       {!loading && (
         <div className="scroll">

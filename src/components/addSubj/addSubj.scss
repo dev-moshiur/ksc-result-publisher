@@ -20,16 +20,15 @@
   .container {
     display: flex;
     align-items: center;
-    
 
     background: white;
     width: 100% !important;
-    
+
     justify-content: center;
     align-items: center;
     flex-direction: column;
     .button {
-      background: rgb(241, 82, 38);
+      background: #de80f0;
       margin-top: 0.8rem;
       border: none;
       outline: none;
@@ -48,7 +47,6 @@
       position: absolute;
       top: 2rem;
       right: 2rem;
-      
     }
     .heading {
       color: var(--black);
@@ -113,7 +111,7 @@
           font-size: 1.3rem;
           padding: 0.3rem 0.7rem;
           border-radius: 0.3rem;
-         width: calc(100% - 4rem);
+          width: calc(100% - 4rem);
 
           &:last-child {
             background: #2e8b57;
@@ -129,7 +127,7 @@
           }
         }
         .reset {
-          background: rgb(241, 82, 38);
+          background: #de80f0;
           margin-top: 0.8rem;
           border: none;
           outline: none;

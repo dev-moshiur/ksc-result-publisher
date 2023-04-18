@@ -6,10 +6,8 @@ import AddSubj from "../addSubj/AddSubj";
 import Marksheet from "../marksheet/Marksheet";
 import InputComponent from "../inputComponent/InputComponent";
 import PopupMessage from "../popupMessage/PopupMessage";
-import ClassandGroupWiseSubjects from '../../groupWiseSubjects/subjects'
-import {
-  setSubject
-} from "../../features/inputElement/inputElmSlice";
+import ClassandGroupWiseSubjects from "../../groupWiseSubjects/subjects";
+import { setSubject } from "../../features/inputElement/inputElmSlice";
 import { useSelector, useDispatch } from "react-redux";
 export default function AdminInput() {
   const { total, fail, gpa, subjectCount, cgpa, subjInfo } = useSelector(
@@ -30,12 +28,14 @@ export default function AdminInput() {
   let group = useRef();
   let studentName = useRef();
   let roll = useRef();
-  const handleClassAndGroupClange = ()=>{
-    const setsubject = ClassandGroupWiseSubjects.filter((elm)=> elm.class == className.current.value && elm.group == group.current.value.toLowerCase())
-    dispatch(setSubject(setsubject[0].sublects))
-    
-  }
-
+  const handleClassAndGroupClange = () => {
+    const setsubject = ClassandGroupWiseSubjects.filter(
+      (elm) =>
+        elm.class == className.current.value &&
+        elm.group == group.current.value.toLowerCase()
+    );
+    dispatch(setSubject(setsubject[0].sublects));
+  };
 
   const makeMarksheet = () => {
     inputSubjects.forEach((item) => subjectMap(item, dispatch));
@@ -70,15 +70,13 @@ export default function AdminInput() {
     }
   };
   const minimumTreeSubject = () => {
-    if (
-      inputSubjects.length >=3
-    ) {
+    if (inputSubjects.length >= 3) {
       return true;
     } else {
       return false;
     }
   };
-  
+
   const submitAction = (e) => {
     e.preventDefault();
     if (basicInfoFiled() && minimumTreeSubject()) {
@@ -88,11 +86,10 @@ export default function AdminInput() {
           ((gpa / subjectCount > 5 ? 5 : gpa / subjectCount) / 1).toFixed(2)
       );
       setShowMarksheet(true);
-    } else if(!basicInfoFiled()){
+    } else if (!basicInfoFiled()) {
       setPopupMessage("Fill up number 1 form at first");
       setPopupActive(true);
-    }
-     else if(!minimumTreeSubject()){
+    } else if (!minimumTreeSubject()) {
       setPopupMessage("At least 3 Subjects Needed");
       setPopupActive(true);
     }
@@ -137,24 +134,19 @@ export default function AdminInput() {
           <option value="Weekly Test-35 2023"></option>
           <option value="Final Examination 2023"></option>
         </datalist>
-        
-
-
 
         <select
-          
           required
           name="className"
           ref={className}
           placeholder="Class"
           onChange={handleClassAndGroupClange}
-        >      
-        <option value="6">6</option> 
-        <option value="7">7</option> 
-        <option value="8">8</option> 
-        <option value="9">9</option> 
-        <option value="10">10</option> 
-        
+        >
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
         <input
           type="text"
@@ -163,13 +155,13 @@ export default function AdminInput() {
           ref={group}
           list="group"
           placeholder="Group"
-          defaultValue={'science'}
+          defaultValue={"science"}
           onChange={handleClassAndGroupClange}
         />
         <datalist id="group">
           <option value="Science"></option>
           <option value="Humanities"></option>
-       
+
           <option value="No group"></option>
         </datalist>
         <input type="reset" value={"Clear Form"} placeholder="Reset" />
