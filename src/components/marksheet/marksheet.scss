@@ -99,12 +99,7 @@
     }
   }
 
-  // @media screen and (max-width: 520px) {
-  //   .middle {
-  //     padding-left: 2rem;
-  //     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  //   }
-  // }
+  
   .bottom {
     display: flex;
     flex-direction: column;
@@ -152,6 +147,30 @@
             }
           }
         }
+      }
+    }
+  }
+  .info{
+    justify-self: end;
+
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 28px;
+    align-items: center;
+    column-gap: 13px;
+    .col{
+      span{
+        
+          &:first-child{
+
+          }
+          &:last-child{
+            font-style: italic;
+            margin-left: 3px;
+
+          }
+        
       }
     }
   }

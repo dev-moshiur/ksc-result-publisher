@@ -29,6 +29,7 @@
     flex-direction: column;
     background: #f2f3f4;
     
+    
     max-width: 500px;
     justify-content: center;
     margin: 0 auto;
@@ -36,7 +37,7 @@
     padding: 2rem;
     border-radius: 0.4rem;
     button {
-      background: #2e8b57;
+      background: var(--top-color);
       width: fit-content;
       color: #fff;
       cursor: pointer;

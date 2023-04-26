@@ -120,6 +120,11 @@ export default function ({
                 </tbody>
               </table>
             </div>
+            <div className="info">
+              <div className="col"><span>Developer : </span><span>Md Moshiur Rahman</span></div>
+              <div className="col"><span>Phone : </span><span>+880 1725256642</span></div>
+              <div className="col"><span>Whats App : </span>+880 1885355627<span></span></div>
+            </div>
           </div>
         </div>
       )}
