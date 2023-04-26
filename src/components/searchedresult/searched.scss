@@ -38,9 +38,9 @@
   .filter {
     position: fixed;
     top: 60px;
-    left: 2%;
-    right: 2%;
-    height: calc(100vh - 145px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
     border-radius: 0.4rem;
     display: flex;
     flex-direction: column;
@@ -57,10 +57,12 @@
     .filteringKeys {
       height: fit-content;
       width: 100%;
+      margin-top: 30px;
       form {
         padding: 1.5rem;
         display: flex;
         height: fit-content;
+        width: 100% !important;
 
         flex-direction: column;
         row-gap: 1rem;
