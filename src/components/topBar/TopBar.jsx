@@ -132,8 +132,8 @@ export default function TopBar() {
             industry.
             <br />
             <br />
-            Feel free to contact me if you need a stack website on MERN stack
-            technology
+            Feel free to contact me if you need a website on <strong> MERN stack
+            technology</strong> and mobile apps on <strong>React Native</strong>
           </div>
         </div>
         <div className="clear" onClick={() => setShowDeveloper(false)}>

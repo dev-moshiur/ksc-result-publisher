@@ -5,9 +5,8 @@
   right: 0;
   left: 0;
   z-index: 20;
-  background: #ba68ca;
-  background-color: rgba(190, 216, 248, 0.99);
-  color: var(--black);
+  background: var(--top-color);
+  color: #fff;
   padding: 0px 0%;
   display: flex;
   justify-content: space-between;
@@ -15,7 +14,7 @@
   box-shadow: 0 0 1rem rgba($color: #ba68ca, $alpha: 0.1);
   box-sizing: border-box;
   .logo {
-    color: var(--black);
+    color: #fff;
     font-size: 2.2rem;
     font-weight: 600;
     cursor: pointer;
@@ -99,7 +98,7 @@
             & > * {
               &:first-child {
                 font-size: 2rem;
-                color: var(--orenge);
+                color: var(--top-color);
               }
             }
           }
@@ -120,7 +119,7 @@
       padding: 0.3rem 0.6rem;
       border-radius: 0.2rem;
       transition: 0.3s;
-      color: var(--black);
+      color: #fff;
       display: flex;
       align-items: center;
       column-gap: 4px;
@@ -157,7 +156,7 @@
       text-decoration: none;
       cursor: pointer;
       color: #fff;
-      background-color: var(--orenge);
+      background: var(--top-color);
       font-size: 1.5rem;
       font-weight: 500;
       padding: 0.4rem 0.6rem;
@@ -284,6 +283,7 @@
           }
           span {
             font-size: 16px;
+            
           }
         }
       }

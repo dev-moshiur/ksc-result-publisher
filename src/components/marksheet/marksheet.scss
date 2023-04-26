@@ -2,7 +2,7 @@
   width: 100%;
   position: fixed;
   padding-bottom: 2rem;
-  top: 60px;
+  top: 70px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -29,8 +29,13 @@
       border: var(--border);
       color: white;
       border-radius: 0.5rem;
-      background: rgb(241, 82, 38);
+      background: var(--top-color);
       margin: 0;
+      transition: 0.2s;
+    
+      &:hover{
+        opacity: 0.8099;
+      }
     }
   }
 }
@@ -69,10 +74,11 @@
     }
   }
   .middle {
-    width: 35rem;
+    width: 45rem;
     margin: 1rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    column-gap: 10px;
     padding-left: 5rem;
 
     & > * {
