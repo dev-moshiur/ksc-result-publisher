@@ -1,5 +1,7 @@
 import React from "react";
 import "./popupMessage.scss";
+
+
 export default function PopupMessage({ popupActive, setPopupActive, message }) {
   return (
     <div className={popupActive ? "popupMessage active" : "popupMessage"}>
@@ -9,6 +11,7 @@ export default function PopupMessage({ popupActive, setPopupActive, message }) {
       <div onClick={() => setPopupActive(false)} className="cross">
         <span></span>
         <span></span>
+   
       </div>
     </div>
   );

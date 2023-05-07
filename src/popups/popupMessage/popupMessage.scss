@@ -1,0 +1,30 @@
+.popupMessage {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  background-color: rgba($color: #111, $alpha: 0.8);
+  .container {
+    padding: 16px;
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .message {
+      font-size: 17px;
+      font-weight: 500;
+    }
+    .cancel {
+      cursor: pointer;
+    }
+  }
+}
