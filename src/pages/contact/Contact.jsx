@@ -17,7 +17,7 @@ export default function Contact() {
       address:e.target.address.value,
       message:e.target.message.value
     }
-   fetch(`https://send-mail-to-moshiur.vercel.app/sendMail`,{
+   fetch(`https://send-mail-to-moshiur.onrender.com/sendMail`,{
     method: "post",
     headers: { "Content-type": "application/json" },
     body:JSON.stringify(body)
