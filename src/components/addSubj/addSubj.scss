@@ -4,6 +4,7 @@
   left: -100%;
   z-index: 19;
   width: 100%;
+
   height: calc(100vh - 75px);
   display: flex;
   transition: 0.7s;
@@ -23,12 +24,14 @@
 
     background: white;
     width: 100% !important;
+    height: fit-content;
 
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 60px;
     .button {
-      background: #de80f0;
+      background: var(--top-color);
       margin-top: 0.8rem;
       border: none;
       outline: none;
@@ -127,7 +130,7 @@
           }
         }
         .reset {
-          background: #de80f0;
+          background: #2e8b57;
           margin-top: 0.8rem;
           border: none;
           outline: none;
