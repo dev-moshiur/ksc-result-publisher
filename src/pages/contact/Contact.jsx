@@ -69,7 +69,7 @@ export default function Contact() {
             rows="5"
             placeholder="type your message here"
           ></textarea>
-          <input className="submitBtn" type="submit" value="Send" />
+          <input className="submitBtn btn" type="submit" value="Send" />
         </div>
       </form>
     </div>

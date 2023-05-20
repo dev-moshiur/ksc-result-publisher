@@ -122,7 +122,7 @@ export default function TopBar() {
             </strong>
             , which is a powerful and popular technology stack for building web
             applications. I have a strong foundation in front-end development
-            with<strong>React.js</strong> and back-end development with{" "}
+            with<strong> React.js</strong> and back-end development with{" "}
             <strong>Node.js and Express.js</strong> , as well as experience
             working with <strong>MongoDB(Mongoose)</strong> for database
             management. I am passionate about creating efficient and
