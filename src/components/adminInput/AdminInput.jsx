@@ -116,6 +116,7 @@ export default function AdminInput() {
   }
 
   return (
+    <>
     <div className="adminInput">
       <div className="header">Publish Result</div>
       <div className="heading">1.Basic Information</div>
@@ -201,11 +202,14 @@ export default function AdminInput() {
         />
       )}
       <AddSubj addSubjOpen={addSubjOpen} setAddSubjOpen={setAddSubjOpen} />
-      <PopupMessage
+     
+    </div>
+    {popupMessage &&
+     <PopupMessage
         popupActive={popupActive}
         setPopupActive={setPopupActive}
         message={popupMessage}
-      />
-    </div>
+      /> }
+      </>
   );
 }
