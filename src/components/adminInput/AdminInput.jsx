@@ -5,7 +5,7 @@ import subjectMap from "../../makingMarksheetFunction/subjectMap";
 import AddSubj from "../addSubj/AddSubj";
 import Marksheet from "../marksheet/Marksheet";
 import InputComponent from "../inputComponent/InputComponent";
-import PopupMessage from "../popupMessage/PopupMessage";
+import PopupMessage from "../popupMessage/Popup";
 import ClassandGroupWiseSubjects from "../../groupWiseSubjects/subjects";
 import { setSubject } from "../../features/inputElement/inputElmSlice";
 import { useSelector, useDispatch } from "react-redux";
@@ -206,9 +206,9 @@ export default function AdminInput() {
     </div>
     {popupMessage &&
      <PopupMessage
-        popupActive={popupActive}
-        setPopupActive={setPopupActive}
-        message={popupMessage}
+     setShowMessage={setPopupMessage}
+        // setPopupActive={setPopupActive}
+        showMessage={popupMessage}
       /> }
       </>
   );
