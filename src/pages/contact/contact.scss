@@ -24,6 +24,12 @@
       column-gap: 1rem;
       @media (max-width:650px) {
         flex-direction: column;
+        .col{
+          width: 100% !important;
+          input{
+            width: 100% !important;
+          }
+        }
       }
       .col {
         flex: 1 1 10rem;
@@ -34,7 +40,7 @@
           border: 1px solid #e6dfdf;
           padding: 0.8rem 0.8rem;
           outline: none;
-          width: 90%;
+          width: 100%;
           color: var(--black);
           font-size: 1.5rem;
           &:focus {
@@ -52,7 +58,7 @@
         border: 1px solid #e6dfdf;
         padding: 0.8rem 0.8rem;
         outline: none;
-        width: 96%;
+        width: 100%;
         color: var(--black);
         font-size: 1.5rem;
         &:focus {
