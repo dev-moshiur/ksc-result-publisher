@@ -29,12 +29,15 @@
       border-radius: 0.2rem;
       align-items: center;
 
+
       .question {
         font-weight: 500;
         align-items: center;
         display: flex;
         justify-content: space-between;
         column-gap: 3rem;
+        justify-content: space-between !important;
+        width: 100%;
         span {
           &:first-child {
             font-weight: 600;
@@ -71,7 +74,7 @@
 
       &.active {
         .answer {
-          height: 10rem;
+          height: 28rem;
         }
       }
     }
