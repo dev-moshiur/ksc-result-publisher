@@ -19,7 +19,7 @@ export default function RowResultContainer({ results }) {
         <div className="header">
           <div className="schoolName">{results[0].schoolName}</div>
           <div className="examType">
-            {results[0].examType || "Annual Examination 2023"}
+            {results[0].examtype || "Annual Examination 2023"}
           </div>
           <div className="other">
             <div>
