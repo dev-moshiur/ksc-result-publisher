@@ -150,21 +150,26 @@ export default function AdminInput() {
           <option value="10">10</option>
         </select>
         <input
-          type="text"
-          required
-          name="group"
-          ref={group}
-          list="group"
-          placeholder="Group"
-          defaultValue={"science"}
-          onChange={handleClassAndGroupClange}
+          
+          
+          
+         
+          
+          
         />
-        <datalist id="group">
-          <option value="Science"></option>
-          <option value="Humanities"></option>
-
-          <option value="No group"></option>
-        </datalist>
+        <select
+            name="group"
+            id=""
+            required
+            ref={group}
+            placeholder="select from datalist"
+            onChange={handleClassAndGroupClange}
+          >
+            <option value="science">Science</option>
+            <option value="humanities">Humanities</option>
+            <option value="business">Business</option>
+            <option value="no group">No group</option>
+          </select>
         <input type="reset" value={"Clear Form"} placeholder="Reset" />
       </form>
       <div className="heading">2.Subject wise marks</div>
