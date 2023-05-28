@@ -149,14 +149,7 @@ export default function AdminInput() {
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
-        <input
-          
-          
-          
-         
-          
-          
-        />
+        
         <select
             name="group"
             id=""
